@@ -25,10 +25,14 @@ MAX_ITEMS_SOLD_OR_BOUGHT_AT_ONCE = 5
 NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 20)
 
 MIN_DISTANCE_BETWEEN_SHOPS = MAX_SIZE / 4
+NEW_ITEM_CHANCE = 0.45
+SEND_MESSAGE_CHANCE = 0.02
 
 # DATABASE STRINGS
 INSERT_PLAYERS = "insert into players(name) values('{}');"
 # INSERT_PLAYERS = "Created player {}"
+
+SEND_MESSAGE = "insert into sendsText(sender_ID, receiver_ID, message) values ({}, {}, '{}');"
 
 INSERT_ITEMS = "insert into items(item_name, item_description) values ('{}', '{}');"
 # INSERT_ITEMS = "Created item {}: {}"
@@ -68,6 +72,9 @@ DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standa
 class DBC:
     def insertPlayer(p):
         print(INSERT_PLAYERS.format(p.name))
+
+    def sendMessage(p, o, t):
+        print(SEND_MESSAGE.format(p.uid+1, o.uid+1, t.replace("'", "")))
 
     def updateItemsInv(amount, uid, iid):
         print(UPDATE_ITEMS_INV.format(amount, uid+1, iid+1))
@@ -338,13 +345,17 @@ class Game:
             DBC.insertFaction(f)
             DBC.playerJoinFaction(leader, f)
 
+    def genMessages(self):
+        with open("movie_lines.txt", "r") as f:
+            txt = f.read()
+        self.pmessages=re.findall(".*\+\+\+\$\+\+\+ (.*)\n", txt)
 
     def generateStart(self):
         generatePermissions.generatePermissions()
-        parseMovieLines
         self.genPlayers()
         self.genItems()
         self.genFactions()
+        self.genMessages()
 
     def nextState(self):
         self.gameMap = dict()
@@ -355,7 +366,7 @@ class Game:
                 
         chosenItems = random.choices(population=self.items["population"], weights=self.items["weights"], k=len(self.players))
         for i, player in enumerate(self.players):
-            if random.random() <= 0.5 and not player.invIsFull(): #TODO limit inv size?
+            if random.random() <= NEW_ITEM_CHANCE and not player.invIsFull(): #TODO limit inv size?
                 #TODO make items have different chances of being obtained. Dirt is more likely than gold
                 player.addToInv(chosenItems[i], random.randrange(1, MAX_RANDOM_ADD_ITEMS))
             player.moveSomewhere(self)
@@ -370,6 +381,11 @@ class Game:
                         f.members[player] = player
                         DBC.playerJoinFaction(player, f)
                         break
+            
+            if random.random() < SEND_MESSAGE_CHANCE:
+                other = random.choice(self.players)
+                if other != player:
+                    DBC.sendMessage(player, other, random.choice(self.pmessages))
 
 
     def run(self):
