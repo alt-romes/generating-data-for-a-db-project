@@ -1,5 +1,5 @@
-INSERT_INTO_PERMISSIONS = "insert into permissions (identificator) values ('{}');"
-INSERT_INTO_HAS_PERMISSIONS = "insert into parent (parent_identificator, child_identificator) values ('{}', '{}')"
+INSERT_INTO_PERMISSIONS = "insert into permissions values ('{}');"
+INSERT_INTO_HAS_PERMISSIONS = "insert into parent values('{}','{}');"
 
 def generatePermissions():
 
