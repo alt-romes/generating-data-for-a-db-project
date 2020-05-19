@@ -18,9 +18,9 @@ MAX_PLAYERS = 200
 MAX_SIZE = MAX_PLAYERS*2
 
 MAX_RANDOM_ADD_ITEMS = 30
-MAX_MOVE_IN_DIRECTION = 15
+MAX_MOVE_IN_DIRECTION = 20
 PLAYER_DEFAULT_HEALTH = 60
-INV_SIZE = 36
+INV_SIZE = 40
 MAX_ITEMS_SOLD_OR_BOUGHT_AT_ONCE = 5
 NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 20)
 
@@ -32,82 +32,83 @@ SEND_MESSAGE_CHANCE = 0.02
 INSERT_PLAYERS = "insert into players(name) values('{}');"
 # INSERT_PLAYERS = "Created player {}"
 
-SEND_MESSAGE = "insert into sendsText(sender_ID, receiver_ID, message) values ({}, {}, '{}');"
+SEND_MESSAGE = "insert into sendsText(sender_name, receiver_name, message) values ('{}','{}','{}');"
 
-INSERT_ITEMS = "insert into items(item_name, item_description) values ('{}', '{}');"
+INSERT_ITEMS = "insert into items(item_name, item_description) values ('{}','{}');"
 # INSERT_ITEMS = "Created item {}: {}"
 
-INSERT_ITEMS_INV = "insert into inventory (id, id_item, inv_amount) values ({}, {}, {});"
+INSERT_ITEMS_INV = "insert into inventory (player_name, id_item, inv_amount) values ('{}', {}, {});"
 # INSERT_ITEMS_INV = "Player {} acquired {}. Amount: {}"
 
-UPDATE_ITEMS_INV = "update inventory set inv_amount=inv_amount+{} where id={} and id_item={};"
+UPDATE_ITEMS_INV = "update inventory set inv_amount=inv_amount+{} where player_name='{}' and id_item={};"
 # UPDATE_ITEMS_INV = "Inventory now has {} more for user {}, of item {}"
 
 INSERT_IN_FACTION = "insert into factions values ('{}',{},{},{},'{}');"
 
-PLAYER_JOIN_FACTION = "insert into belongs(id, faction_name) values ({},'{}');"
+PLAYER_JOIN_FACTION = "insert into belongs(player_name, faction_name) values ('{}','{}');"
 
-CREATE_SHOP = "insert into shops(id, coordx, coordy, shop_header) values ({}, {}, {}, '{}');"
+CREATE_SHOP = "insert into shops(player_name, coordx, coordy, shop_header) values ('{}', {}, {}, '{}');"
 # CREATE_SHOP = "Player {} created at {}, {} a new shop: {}"
 
-PLAYER_KILLED = 'insert into kills (waskilled_ID, killed_ID) values ({}, {});'
+PLAYER_KILLED = "insert into kills (waskilled_name, killed_name) values ('{}','{}');"
 # PLAYER_KILLED = "Player {} was killed by {}"
 
-PUT_ITEM_FOR_SALE = 'insert into for_sale values({},{},{},{},{});'
+PUT_ITEM_FOR_SALE = "insert into for_sale values('{}',{},{},{},{});"
 # PUT_ITEM_FOR_SALE = "Player {} in shop {} puts {} for sale for {}. {} available"
 
-UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount = sale_amount + {} where id={} and id_shop={} and id_item={};"
+UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount = sale_amount + {} where player_name='{}' and id_shop={} and id_item={};"
 # UPDATE_ITEM_FOR_SALE = "{} more items restocked for player {} shop {} item {}"
 
-ITEM_WAS_BOUGHT_FROM_SHOP = "insert into transaction(buyer_id,seller_id,id_shop,id_item,bought_amount) values({},{},{},{},{});"
+ITEM_WAS_BOUGHT_FROM_SHOP = "insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('{}','{}',{},{},{});"
 # ITEM_WAS_BOUGHT_FROM_SHOP = "Player {} bought from {}, in shop {} the item {}. Amount: {}"
 
-ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "update transaction set bought_amount = bought_amount + {} where buyer_id={} and seller_id={} and id_shop={} and id_item={};"
+ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "update transaction set bought_amount = bought_amount + {} where buyer_name='{}' and seller_name='{}' and id_shop={} and id_item={};"
 # ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "{} more were bought by {} from {}, in shop {} of item {}"
 
 # FLAIR STRINGS
 DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standard", "A cool looking", "An awesome", "A pretty cool", "Default", "An elementary", "Your usual", "A usual", "An everyday", "Your everyday", "An average looking", "An average", "A conventional", "Your average", "An OK", "A vanilla", "Unique", "A common", "Mainstream", "Your typical", "A typical", "A modest", "A neat", "A bland", "A serious looking", "A decent looking", "A decent", "Pretty nice", "A nice", "An undemanding", "A manageable", "An effortless", "A user-friendly", "A coherent", "An understandable", "An accessible", "Standard", "A basic", "A blunt", "Pure", "Candid", "Some honest", "Some demanding", "A piece of cake but its actually", "You wish itd make sound but it doesnt. Your", "Show it to your friends. Your", "Go crazy with this", "Looks better than you, a good", "But does it fly? A simple", "How will you explain this? Your cool", "A magnificient", "You cant drive it, its a non-drivable", "A sarcastic", "Funny looking", "Has no wheels, but its a decent", "A beautiful", "Looks better than your ex, but youre just holding one more", "How did you even get this", "A rare", "One more", "Close your eyes again, its still just one more", "A f*cking"]
 
 # CODE
+
 class DBC:
     def insertPlayer(p):
         print(INSERT_PLAYERS.format(p.name))
 
     def sendMessage(p, o, t):
-        print(SEND_MESSAGE.format(p.uid+1, o.uid+1, t.replace("'", "")))
+        print(SEND_MESSAGE.format(p.name, o.name, t.replace("'", "")[:500]))
 
-    def updateItemsInv(amount, uid, iid):
-        print(UPDATE_ITEMS_INV.format(amount, uid+1, iid+1))
+    def updateItemsInv(amount, pname, iid):
+        print(UPDATE_ITEMS_INV.format(amount, pname, iid+1))
 
-    def insertItemsInv(uid, iid, amount):
-        print(INSERT_ITEMS_INV.format(uid+1, iid+1, amount))
+    def insertItemsInv(pname, iid, amount):
+        print(INSERT_ITEMS_INV.format(pname, iid+1, amount))
 
     def insertFaction(f):
         print(INSERT_IN_FACTION.format(f.name, f.entrance_level, f.position[0], f.position[1], f.desc))
     
     def playerJoinFaction(p, f):
-        print(PLAYER_JOIN_FACTION.format(p.uid+1, f.name))
+        print(PLAYER_JOIN_FACTION.format(p.name, f.name))
     
     def createShop(newShop):
-        print(CREATE_SHOP.format(newShop.owner.uid+1, newShop.position[0], newShop.position[1], newShop.shop_header))
+        print(CREATE_SHOP.format(newShop.owner.name, newShop.position[0], newShop.position[1], newShop.shop_header))
 
-    def playerKilled(deadID, attackerID):
-        print(PLAYER_KILLED.format(deadID+1, attackerID+1))
+    def playerKilled(deadName, attackerName):
+        print(PLAYER_KILLED.format(deadName, attackerName))
 
     def insertItem(item):
         print(INSERT_ITEMS.format(item.name, item.desc))
 
-    def putItemForSale(id, id_shop, id_item, price, amount):
-        print(PUT_ITEM_FOR_SALE.format(id+1, id_shop+1, id_item+1, price, amount))
+    def putItemForSale(pname, id_shop, id_item, price, amount):
+        print(PUT_ITEM_FOR_SALE.format(pname, id_shop+1, id_item+1, price, amount))
 
-    def updateItemForSale(amount, id, id_shop, id_item):
-        print(UPDATE_ITEM_FOR_SALE.format(amount, id+1, id_shop+1, id_item+1))
+    def updateItemForSale(amount, pname, id_shop, id_item):
+        print(UPDATE_ITEM_FOR_SALE.format(amount, pname, id_shop+1, id_item+1))
 
-    def shopSoldItem(buyerID, sellerID, id_shop, id_item, amount):
-        print(ITEM_WAS_BOUGHT_FROM_SHOP.format(buyerID+1, sellerID+1, id_shop+1, id_item+1, amount))
+    def shopSoldItem(buyerName, sellerName, id_shop, id_item, amount):
+        print(ITEM_WAS_BOUGHT_FROM_SHOP.format(buyerName, sellerName, id_shop+1, id_item+1, amount))
 
-    def shopSoldItemToReturningCustomer(amount, buyer_id, seller_id, id_shop, id_item):
-        print(ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP.format(amount, buyer_id+1, seller_id+1, id_shop+1, id_item+1))
+    def shopSoldItemToReturningCustomer(amount, buyer_name, seller_name, id_shop, id_item):
+        print(ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP.format(amount, buyer_name, seller_name, id_shop+1, id_item+1))
 
 
 class Util:
@@ -163,24 +164,24 @@ class Shop:
     def putItemForSale(self, iid, amount):
         if iid in self.for_sale:
             self.for_sale[iid]['amount'] += amount
-            DBC.updateItemForSale(amount, self.owner.uid, self.id_shop, iid)
+            DBC.updateItemForSale(amount, self.owner.name, self.id_shop, iid)
         else:
             self.for_sale[iid] = {}
             self.for_sale[iid]['bought'] = {}
             self.for_sale[iid]['amount'] = amount
             self.for_sale[iid]['price'] = random.randrange(5, 100) #TODO maybe make this in a way that the economy isn't random
-            DBC.putItemForSale(self.owner.uid, self.id_shop, iid, self.for_sale[iid]['price'], amount)
+            DBC.putItemForSale(self.owner.name, self.id_shop, iid, self.for_sale[iid]['price'], amount)
 
-    def playerPurchase(self, buyerID, iid, amount):
+    def playerPurchase(self, buyerID, buyerName, iid, amount):
         self.for_sale[iid]['amount'] -= amount
         self.owner.balance += amount*self.for_sale[iid]['price']
 
         if 'bought' in self.for_sale[iid] and buyerID in self.for_sale[iid]['bought']:
             self.for_sale[iid]['bought'][buyerID] += amount
-            DBC.shopSoldItemToReturningCustomer(amount, buyerID, self.owner.uid, self.id_shop, iid)
+            DBC.shopSoldItemToReturningCustomer(amount, buyerName, self.owner.name, self.id_shop, iid)
         else:
             self.for_sale[iid]['bought'][buyerID] = amount
-            DBC.shopSoldItem(buyerID, self.owner.uid, self.id_shop, iid, amount)
+            DBC.shopSoldItem(buyerName, self.owner.name, self.id_shop, iid, amount)
         self.owner.level += 1
 
 
@@ -202,10 +203,10 @@ class Player:
     def addToInv(self, item, amount):
         if item.id in self.inv:
             self.inv[item.id] += amount
-            DBC.updateItemsInv(self.inv[item.id], self.uid, item.id)
+            DBC.updateItemsInv(self.inv[item.id], self.name, item.id)
         else:
             self.inv[item.id] = amount
-            DBC.insertItemsInv(self.uid, item.id, amount)
+            DBC.insertItemsInv(self.name, item.id, amount)
         # print('{} of {} added to {}'.format(amount, item.name, self.name))
 
     def moveSomewhere(self, game):
@@ -229,7 +230,7 @@ class Player:
         self.hp -= dmg
         #TODO on death, respawn randomly
         if self.hp <= 0:
-            DBC.playerKilled(self.uid, attacker.uid)
+            DBC.playerKilled(self.name, attacker.name)
             self.position = (random.randrange(-game.max_size, game.max_size), random.randrange(-game.max_size, game.max_size))
 
     def sellItemsInShop(self, shop):
@@ -249,7 +250,7 @@ class Player:
                     amount = random.randrange(1, 1+shop.for_sale[chosenItem]['amount'])
                     if amount*shop.for_sale[chosenItem]['price'] > self.balance:
                         amount = int(self.balance/shop.for_sale[chosenItem]['price'])
-                    shop.playerPurchase(self.uid, chosenItem, amount)
+                    shop.playerPurchase(self.uid, self.name, chosenItem, amount)
                     if chosenItem in self.inv:
                         self.inv[chosenItem] += amount
                     else:
@@ -330,14 +331,14 @@ class Game:
         faction_names = re.findall(r".*?\. (.*?) (- \((.*?)\) |)", factions_string)
 
         self.factions = list()
-        chosenLeaders = []
+        chosenLeaders = [None]
         for i in range(NUMBER_OF_FACTIONS):
             namearr = faction_names.pop()
             f = Faction(namearr[0], random.randrange(0, 12), (random.randrange(-MAX_SIZE, MAX_SIZE), random.randrange(-MAX_SIZE, MAX_SIZE)), (namearr[2] if namearr[2] != '' else 'This is our faction!'))
             leader = None
-            while leader not in chosenLeaders:
+            while leader in chosenLeaders:
                 leader = random.choice(self.players)
-                chosenLeaders.append(leader)
+            chosenLeaders.append(leader)
             f.members[leader] = leader
             chosenLeaders.append(leader)
             self.factions.append(f)
@@ -374,18 +375,20 @@ class Game:
             player.interactwithNeighbours(self)
 
             if player.faction == None:
-                for i in range(3):
-                    f = random.choice(self.factions)
-                    if player.level >= f.entrance_level:
-                        player.faction = f
-                        f.members[player] = player
-                        DBC.playerJoinFaction(player, f)
-                        break
+                # for i in range(3)
+                f = random.choice(self.factions)
+                if player.level >= f.entrance_level:
+                    player.faction = f
+                    f.members[player] = player
+                    DBC.playerJoinFaction(player, f)
+                    # break
             
             if random.random() < SEND_MESSAGE_CHANCE:
                 other = random.choice(self.players)
                 if other != player:
-                    DBC.sendMessage(player, other, random.choice(self.pmessages))
+                    m = random.choice(self.pmessages)
+                    if len(m) > 1:
+                        DBC.sendMessage(player, other, m)
 
 
     def run(self):
