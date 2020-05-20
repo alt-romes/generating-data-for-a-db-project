@@ -14,7 +14,7 @@ import math
 
 # FINE TUNING PARAMETERS
 MAX_GENERATIONS = 1100
-MAX_PLAYERS = 200
+MAX_PLAYERS = 243
 MAX_SIZE = MAX_PLAYERS*2
 
 MAX_RANDOM_ADD_ITEMS = 30
@@ -22,9 +22,9 @@ MAX_MOVE_IN_DIRECTION = 20
 PLAYER_DEFAULT_HEALTH = 60
 INV_SIZE = 40
 MAX_ITEMS_SOLD_OR_BOUGHT_AT_ONCE = 5
-NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 20)
+NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 15)
 
-MIN_DISTANCE_BETWEEN_SHOPS = MAX_SIZE / 4
+MIN_DISTANCE_BETWEEN_SHOPS = MAX_SIZE / 5
 NEW_ITEM_CHANCE = 0.45
 SEND_MESSAGE_CHANCE = 0.02
 
@@ -136,7 +136,7 @@ class Graphics:
     
         plt.plot(self.plotplayersX, self.plotplayersY, "ro", self.plotshopsX, self.plotshopsY, "go")
         plt.draw()
-        # plt.pause(0.01)
+        plt.pause(0.01)
         plt.clf()
 
 class Item:
@@ -182,7 +182,7 @@ class Shop:
         else:
             self.for_sale[iid]['bought'][buyerID] = amount
             DBC.shopSoldItem(buyerName, self.owner.name, self.id_shop, iid, amount)
-        self.owner.level += 1
+        self.owner.level += amount
 
 
 class Player:
@@ -256,7 +256,7 @@ class Player:
                     else:
                         self.inv[chosenItem] = amount
                     self.balance -= amount*shop.for_sale[chosenItem]['price']
-                    self.level += 1
+                    self.level += amount
 
     def interactWithNeighbour(self, nb, game):
         if nb != self:
@@ -334,7 +334,7 @@ class Game:
         chosenLeaders = [None]
         for i in range(NUMBER_OF_FACTIONS):
             namearr = faction_names.pop()
-            f = Faction(namearr[0], random.randrange(0, 12), (random.randrange(-MAX_SIZE, MAX_SIZE), random.randrange(-MAX_SIZE, MAX_SIZE)), (namearr[2] if namearr[2] != '' else 'This is our faction!'))
+            f = Faction(namearr[0], random.randrange(4, 12), (random.randrange(-MAX_SIZE, MAX_SIZE), random.randrange(-MAX_SIZE, MAX_SIZE)), (namearr[2] if namearr[2] != '' else 'This is our faction!'))
             leader = None
             while leader in chosenLeaders:
                 leader = random.choice(self.players)
@@ -377,7 +377,7 @@ class Game:
             if player.faction == None:
                 # for i in range(3)
                 f = random.choice(self.factions)
-                if player.level >= f.entrance_level:
+                if player.level/5 >= f.entrance_level:
                     player.faction = f
                     f.members[player] = player
                     DBC.playerJoinFaction(player, f)
