@@ -1,5 +1,7 @@
-INSERT_INTO_PERMISSIONS = "insert into permissions values ('{}');"
-INSERT_INTO_HAS_PERMISSIONS = "insert into parent values('{}','{}');"
+from zeroPlayerGame import DBC
+
+INSERT_INTO_PERMISSIONS = "insert into permissions values ('{}')"
+INSERT_INTO_HAS_PERMISSIONS = "insert into parent values('{}','{}')"
 
 def generatePermissions():
 
@@ -12,7 +14,7 @@ def generatePermissions():
         aux = l.strip().replace('-', '').strip()
         if aux not in idsAdded and aux != '':
             idsAdded.append(aux)
-            print(INSERT_INTO_PERMISSIONS.format(aux))
+            DBC.printAndExecute(INSERT_INTO_PERMISSIONS.format(aux))
 
 
     for i in range(len(lines)):
@@ -21,6 +23,6 @@ def generatePermissions():
             jDeep = len(lines[j].split(" ")[0])
 
             if iDeep == jDeep-1:
-                print(INSERT_INTO_HAS_PERMISSIONS.format(lines[i].strip().split(" ")[1], lines[j].strip().split(" ")[1]))
+                DBC.printAndExecute(INSERT_INTO_HAS_PERMISSIONS.format(lines[i].strip().split(" ")[1], lines[j].strip().split(" ")[1]))
             elif iDeep >= jDeep:
                 break

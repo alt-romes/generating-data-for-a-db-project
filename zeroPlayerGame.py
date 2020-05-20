@@ -20,96 +20,140 @@ MAX_SIZE = MAX_PLAYERS*2
 MAX_RANDOM_ADD_ITEMS = 30
 MAX_MOVE_IN_DIRECTION = 20
 PLAYER_DEFAULT_HEALTH = 60
-INV_SIZE = 40
+INV_SIZE = 42
 MAX_ITEMS_SOLD_OR_BOUGHT_AT_ONCE = 5
 NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 15)
+FRIENDS_PER_PLAYER = int(MAX_PLAYERS / 14)
 
 MIN_DISTANCE_BETWEEN_SHOPS = MAX_SIZE / 5
 NEW_ITEM_CHANCE = 0.45
-SEND_MESSAGE_CHANCE = 0.02
+SEND_MESSAGE_CHANCE = 0.01
 
 # DATABASE STRINGS
-INSERT_PLAYERS = "insert into players(name) values('{}');"
+INSERT_PLAYERS = "insert into players(name) values('{}')"
 # INSERT_PLAYERS = "Created player {}"
 
-SEND_MESSAGE = "insert into sendsText(sender_name, receiver_name, message) values ('{}','{}','{}');"
+SEND_MESSAGE = "insert into sendsText(sender_name, receiver_name, message) values ('{}','{}','{}')"
 
-INSERT_ITEMS = "insert into items(item_name, item_description) values ('{}','{}');"
+INSERT_ITEMS = "insert into items(item_name, item_description) values ('{}','{}')"
 # INSERT_ITEMS = "Created item {}: {}"
 
-INSERT_ITEMS_INV = "insert into inventory (player_name, id_item, inv_amount) values ('{}', {}, {});"
+INSERT_ITEMS_INV = "insert into inventory (player_name, id_item, inv_amount) values ('{}', {}, {})"
 # INSERT_ITEMS_INV = "Player {} acquired {}. Amount: {}"
 
-UPDATE_ITEMS_INV = "update inventory set inv_amount=inv_amount+{} where player_name='{}' and id_item={};"
+UPDATE_ITEMS_INV = "update inventory set inv_amount=inv_amount+{} where player_name='{}' and id_item={}"
 # UPDATE_ITEMS_INV = "Inventory now has {} more for user {}, of item {}"
 
-INSERT_IN_FACTION = "insert into factions values ('{}',{},{},{},'{}');"
+INSERT_IN_FACTION = "insert into factions values ('{}',{},{},{},'{}')"
 
-PLAYER_JOIN_FACTION = "insert into belongs(player_name, faction_name) values ('{}','{}');"
+PLAYER_JOIN_FACTION = "insert into belongs(player_name, faction_name) values ('{}','{}')"
 
-CREATE_SHOP = "insert into shops(player_name, coordx, coordy, shop_header) values ('{}', {}, {}, '{}');"
+CREATE_SHOP = "insert into shops(player_name, coordx, coordy, shop_header) values ('{}', {}, {}, '{}')"
 # CREATE_SHOP = "Player {} created at {}, {} a new shop: {}"
 
-PLAYER_KILLED = "insert into kills (waskilled_name, killed_name) values ('{}','{}');"
+PLAYER_KILLED = "insert into kills (waskilled_name, killed_name) values ('{}','{}')"
 # PLAYER_KILLED = "Player {} was killed by {}"
 
-PUT_ITEM_FOR_SALE = "insert into for_sale values('{}',{},{},{},{});"
+PUT_ITEM_FOR_SALE = "insert into for_sale values('{}',{},{},{},{})"
 # PUT_ITEM_FOR_SALE = "Player {} in shop {} puts {} for sale for {}. {} available"
 
-UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount = sale_amount + {} where player_name='{}' and id_shop={} and id_item={};"
+UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount = sale_amount + {} where player_name='{}' and id_shop={} and id_item={}"
 # UPDATE_ITEM_FOR_SALE = "{} more items restocked for player {} shop {} item {}"
 
-ITEM_WAS_BOUGHT_FROM_SHOP = "insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('{}','{}',{},{},{});"
+ITEM_WAS_BOUGHT_FROM_SHOP = "insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('{}','{}',{},{},{})"
 # ITEM_WAS_BOUGHT_FROM_SHOP = "Player {} bought from {}, in shop {} the item {}. Amount: {}"
 
-ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "update transaction set bought_amount = bought_amount + {} where buyer_name='{}' and seller_name='{}' and id_shop={} and id_item={};"
+ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "update transaction set bought_amount = bought_amount + {} where buyer_name='{}' and seller_name='{}' and id_shop={} and id_item={}"
 # ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "{} more were bought by {} from {}, in shop {} of item {}"
 
 # FLAIR STRINGS
 DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standard", "A cool looking", "An awesome", "A pretty cool", "Default", "An elementary", "Your usual", "A usual", "An everyday", "Your everyday", "An average looking", "An average", "A conventional", "Your average", "An OK", "A vanilla", "Unique", "A common", "Mainstream", "Your typical", "A typical", "A modest", "A neat", "A bland", "A serious looking", "A decent looking", "A decent", "Pretty nice", "A nice", "An undemanding", "A manageable", "An effortless", "A user-friendly", "A coherent", "An understandable", "An accessible", "Standard", "A basic", "A blunt", "Pure", "Candid", "Some honest", "Some demanding", "A piece of cake but its actually", "You wish itd make sound but it doesnt. Your", "Show it to your friends. Your", "Go crazy with this", "Looks better than you, a good", "But does it fly? A simple", "How will you explain this? Your cool", "A magnificient", "You cant drive it, its a non-drivable", "A sarcastic", "Funny looking", "Has no wheels, but its a decent", "A beautiful", "Looks better than your ex, but youre just holding one more", "How did you even get this", "A rare", "One more", "Close your eyes again, its still just one more", "A f*cking"]
 
 # CODE
-
 class DBC:
-    def insertPlayer(p):
-        print(INSERT_PLAYERS.format(p.name))
+    EXECUTE_URL = ''
 
-    def sendMessage(p, o, t):
-        print(SEND_MESSAGE.format(p.name, o.name, t.replace("'", "")[:500]))
+    def __init__(self):
+        self.buffer = []
 
-    def updateItemsInv(amount, pname, iid):
-        print(UPDATE_ITEMS_INV.format(amount, pname, iid+1))
+    def printAndExecute(self, c):
+        if (c.split(" ")[0] == "insert" and len(self.buffer)==0) or (c.split(" ")[0] == "insert" and len(self.buffer)>0 and self.buffer[len(self.buffer)-1].split(" ")[2] == c.split(" ")[2]):
+            self.buffer.append(c)
+        else:
+            if len(self.buffer) > 0:
+                insertManyString = "insert all\n"
+                for b in self.buffer:
+                    insertManyString += " ".join(b.split(" ")[1:]) + "\n"
+                insertManyString += "select * from dual"
+                print(insertManyString + ";")
+                r = self.executeInDB(insertManyString)
+                error = re.findall('<span style="font-size: 1\.1em;">\n\t\t.*?(ORA-.*?)\n', r.text)
+                print("/* RESPONSE STATUS: ", r.status_code, ("ERROR: " + error['0'] if len(error)>0 else ""), "*/")
+                self.buffer.clear()
+            if c.split(" ")[0] == "insert":
+                self.buffer.append(c)
+            else:
+                print(c+";")
+                r = self.executeInDB(c)
+                error = re.findall('<span style="font-size: 1\.1em;">\n\t\t.*?(ORA-.*?)\n', r.text)
+                print("/* RESPONSE STATUS: ", r.status_code, ("ERROR: " + error['0'] if len(error)>0 else ""), "*/")
 
-    def insertItemsInv(pname, iid, amount):
-        print(INSERT_ITEMS_INV.format(pname, iid+1, amount))
+    def executeInDB(self, command):
+        return requests.post(self.EXECUTE_URL, {"command": command})
 
-    def insertFaction(f):
-        print(INSERT_IN_FACTION.format(f.name, f.entrance_level, f.position[0], f.position[1], f.desc))
+    def insertPlayer(self, p):
+        c = INSERT_PLAYERS.format(p.name)
+        self.printAndExecute(c)
+
+    def sendMessage(self, p, o, t):
+        c = SEND_MESSAGE.format(p.name, o.name, t.replace("'", "")[:500])
+        self.printAndExecute(c)
+
+    def updateItemsInv(self, amount, pname, iid):
+        c = UPDATE_ITEMS_INV.format(amount, pname, iid+1)
+        self.printAndExecute(c)
+
+    def insertItemsInv(self, pname, iid, amount):
+        c = INSERT_ITEMS_INV.format(pname, iid+1, amount)
+        self.printAndExecute(c)
+
+    def insertFaction(self, f):
+        c = INSERT_IN_FACTION.format(f.name, f.entrance_level, f.position[0], f.position[1], f.desc)
+        self.printAndExecute(c)
     
-    def playerJoinFaction(p, f):
-        print(PLAYER_JOIN_FACTION.format(p.name, f.name))
+    def playerJoinFaction(self, p, f):
+        c = PLAYER_JOIN_FACTION.format(p.name, f.name)
+        self.printAndExecute(c)
     
-    def createShop(newShop):
-        print(CREATE_SHOP.format(newShop.owner.name, newShop.position[0], newShop.position[1], newShop.shop_header))
+    def createShop(self, newShop):
+        c = CREATE_SHOP.format(newShop.owner.name, newShop.position[0], newShop.position[1], newShop.shop_header)
+        self.printAndExecute(c)
 
-    def playerKilled(deadName, attackerName):
-        print(PLAYER_KILLED.format(deadName, attackerName))
+    def playerKilled(self, deadName, attackerName):
+        c = PLAYER_KILLED.format(deadName, attackerName)
+        self.printAndExecute(c)
 
-    def insertItem(item):
-        print(INSERT_ITEMS.format(item.name, item.desc))
+    def insertItem(self, item):
+        c = INSERT_ITEMS.format(item.name, item.desc)
+        self.printAndExecute(c)
 
-    def putItemForSale(pname, id_shop, id_item, price, amount):
-        print(PUT_ITEM_FOR_SALE.format(pname, id_shop+1, id_item+1, price, amount))
+    def putItemForSale(self, pname, id_shop, id_item, price, amount):
+        c = PUT_ITEM_FOR_SALE.format(pname, id_shop+1, id_item+1, price, amount)
+        self.printAndExecute(c)
 
-    def updateItemForSale(amount, pname, id_shop, id_item):
-        print(UPDATE_ITEM_FOR_SALE.format(amount, pname, id_shop+1, id_item+1))
+    def updateItemForSale(self, amount, pname, id_shop, id_item):
+        c = UPDATE_ITEM_FOR_SALE.format(amount, pname, id_shop+1, id_item+1)
+        self.printAndExecute(c)
 
-    def shopSoldItem(buyerName, sellerName, id_shop, id_item, amount):
-        print(ITEM_WAS_BOUGHT_FROM_SHOP.format(buyerName, sellerName, id_shop+1, id_item+1, amount))
+    def shopSoldItem(self, buyerName, sellerName, id_shop, id_item, amount):
+        c = ITEM_WAS_BOUGHT_FROM_SHOP.format(buyerName, sellerName, id_shop+1, id_item+1, amount)
+        self.printAndExecute(c)
 
-    def shopSoldItemToReturningCustomer(amount, buyer_name, seller_name, id_shop, id_item):
-        print(ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP.format(amount, buyer_name, seller_name, id_shop+1, id_item+1))
+    def shopSoldItemToReturningCustomer(self, amount, buyer_name, seller_name, id_shop, id_item):
+        c = ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP.format(amount, buyer_name, seller_name, id_shop+1, id_item+1)
+        self.printAndExecute(c)
 
+DBC = DBC()
 
 class Util:
     def calculateDistance(p1, p2):
@@ -196,6 +240,17 @@ class Player:
         self.shops = []
         self.faction = None
         self.level = 0
+        self.friends = []
+
+    def makeFriends(self, possibleFriends):
+        newFriends = random.choices(possibleFriends, k=(FRIENDS_PER_PLAYER if FRIENDS_PER_PLAYER <= len(possibleFriends) else len(possibleFriends)))
+        for f in newFriends:
+            f.addFriend(self)
+        self.friends = random.choices(possibleFriends, k=(FRIENDS_PER_PLAYER if FRIENDS_PER_PLAYER <= len(possibleFriends) else len(possibleFriends)))
+    
+    def addFriend(self, friend):
+        self.friends.append(friend)
+    
 
     def invIsFull(self):
         return len(self.inv) >= INV_SIZE
@@ -309,9 +364,12 @@ class Game:
             x = random.randrange(-self.max_size, self.max_size)
             y = random.randrange(-self.max_size, self.max_size)
             name = names.pop()
-            p = Player(i, name, (x, y))
+            p = Player(i, name[:30], (x, y))
             self.players.append(p)
             DBC.insertPlayer(p)
+        
+        for p in self.players:
+            p.makeFriends(self.players)
 
 
     def genItems(self):
@@ -384,7 +442,7 @@ class Game:
                     # break
             
             if random.random() < SEND_MESSAGE_CHANCE:
-                other = random.choice(self.players)
+                other = random.choice(player.friends)
                 if other != player:
                     m = random.choice(self.pmessages)
                     if len(m) > 1:
