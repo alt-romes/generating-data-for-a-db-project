@@ -110,7 +110,7 @@ class DBC:
                 self.buffer.append(c)
             else:
                 
-                print(c+";"+("/" if c.split(" ")[0]=="begin" else ""))
+                print(c+";"+("\n/" if c.split(" ")[0]=="begin" else ""))
                 self.executeInDB(c + (";" if c.split(" ")[0]=="begin" else ""))
 
 

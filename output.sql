@@ -132,115 +132,155 @@ insert into belongs(player_name, faction_name) values ('BarackObama','Bimyou');
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('scot', 9, 10);
 /* RESPONSE STATUS:  200  */
-begin add_shop('scot', -15, -15); end;/
+begin add_shop('scot', -15, -15); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('teo', -4, -17); end;/
+begin add_shop('teo', -4, -17); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('coppercenter', 18, -11); end;/
+begin add_shop('coppercenter', 18, -11); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('JinnDarklighter', -6, 5); end;/
+begin add_shop('JinnDarklighter', -6, 5); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('lumiyaaurra', -1, 3); end;/
+begin add_shop('lumiyaaurra', -1, 3); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('CrixMadineMarek', -6, 1); end;/
+begin add_shop('CrixMadineMarek', -6, 1); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('lanett', 50, 5);
 /* RESPONSE STATUS:  200  */
-begin add_shop('lanett', 10, -3); end;/
+begin add_shop('lanett', 10, -3); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('captainaayla', -9, -18); end;/
+begin add_shop('captainaayla', -9, -18); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('AbrahamLincoln', 8, -10); end;/
+begin add_shop('AbrahamLincoln', 8, -10); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('calera', -1, 2); end;/
+begin add_shop('calera', -1, 2); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('VosJax', 25, 17);
 /* RESPONSE STATUS:  200  */
-begin add_shop('VosJax', -18, -3); end;/
+begin add_shop('VosJax', -18, -3); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('industry', 13, 4); end;/
+begin add_shop('industry', 13, 4); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('koby', 11, -5); end;/
+begin add_shop('koby', 11, -5); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('WilliamMcKinley', 47, 2);
 /* RESPONSE STATUS:  200  */
-begin add_shop('WilliamMcKinley', 13, -1); end;/
+begin add_shop('WilliamMcKinley', 13, -1); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('AntillesLeia', 16, 20);
 /* RESPONSE STATUS:  200  */
-begin add_shop('AntillesLeia', -5, -2); end;/
+begin add_shop('AntillesLeia', -5, -2); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('emerald', -16, 8); end;/
+begin add_shop('emerald', -16, 8); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('jerry', -3, -12); end;/
+begin add_shop('jerry', -3, -12); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('VosDarklighter', 49, 7);
 /* RESPONSE STATUS:  200  */
-begin add_shop('VosDarklighter', -3, 20); end;/
+begin add_shop('VosDarklighter', -3, 20); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('BarackObama', -17, 7); end;/
+begin add_shop('BarackObama', -17, 7); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('ledger', 33, 3);
 /* RESPONSE STATUS:  200  */
-begin add_shop('ledger', -14, -3); end;/
+begin add_shop('ledger', -14, -3); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('scot', 8, 9);
 /* RESPONSE STATUS:  200  */
-begin add_shop('scot', -10, -5); end;/
+begin add_shop('scot', -10, -5); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('teo', 58, 29);
 /* RESPONSE STATUS:  200  */
-begin add_shop('teo', 5, -2); end;/
+begin add_shop('teo', 5, -2); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('coppercenter', 9, 18);
 /* RESPONSE STATUS:  200  */
-begin add_shop('coppercenter', 11, 1); end;/
+begin add_shop('coppercenter', 11, 1); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('JinnDarklighter', 19, 24);
 /* RESPONSE STATUS:  200  */
-begin add_shop('JinnDarklighter', -13, -8); end;/
+begin add_shop('JinnDarklighter', -13, -8); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('lumiyaaurra', 31, 27);
 /* RESPONSE STATUS:  200  */
-begin add_shop('lumiyaaurra', 16, 13); end;/
+begin add_shop('lumiyaaurra', 16, 13); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('CrixMadineMarek', 49, 21);
 /* RESPONSE STATUS:  200  */
-begin add_shop('CrixMadineMarek', -13, -14); end;/
+begin add_shop('CrixMadineMarek', -13, -14); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('lanett', 3, 17);
 /* RESPONSE STATUS:  200  */
-begin add_shop('lanett', 10, 6); end;/
+begin add_shop('lanett', 10, 6); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('captainaayla', 2, -8); end;/
+begin add_shop('captainaayla', 2, -8); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('AbrahamLincoln', 48, 29);
 /* RESPONSE STATUS:  200  */
-begin add_shop('AbrahamLincoln', 1, -10); end;/
+begin add_shop('AbrahamLincoln', 1, -10); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('calera', 16, -7); end;/
+begin add_shop('calera', 16, -7); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('VosJax', -1, -12); end;/
+begin add_shop('VosJax', -1, -12); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('industry', 4, 19); end;/
+begin add_shop('industry', 4, 19); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('koby', 0, -2); end;/
+begin add_shop('koby', 0, -2); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('WilliamMcKinley', 18, 9); end;/
+begin add_shop('WilliamMcKinley', 18, 9); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('AntillesLeia', 21, 28);
 /* RESPONSE STATUS:  200  */
-begin add_shop('AntillesLeia', -8, -15); end;/
+begin add_shop('AntillesLeia', -8, -15); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('emerald', -2, 8); end;/
+begin add_shop('emerald', -2, 8); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('jerry', 5, -10); end;/
+begin add_shop('jerry', 5, -10); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('VosDarklighter', -17, 17); end;/
+begin add_shop('VosDarklighter', -17, 17); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('BarackObama', -5, 1); end;/
+begin add_shop('BarackObama', -5, 1); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('ledger', -2, 13); end;/
+begin add_shop('ledger', -2, 13); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('scot',2,8,60,1);
 /* RESPONSE STATUS:  200  */
@@ -248,59 +288,76 @@ update for_sale set sale_amount = sale_amount + 3 where player_name='scot' and i
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('teo', 11, 22);
 /* RESPONSE STATUS:  200  */
-begin add_shop('teo', 15, 11); end;/
+begin add_shop('teo', 15, 11); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('coppercenter', 9, -11); end;/
+begin add_shop('coppercenter', 9, -11); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('JinnDarklighter', 4, -6); end;/
+begin add_shop('JinnDarklighter', 4, -6); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('lumiyaaurra', 15, 2); end;/
+begin add_shop('lumiyaaurra', 15, 2); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('CrixMadineMarek', 43, 20);
 /* RESPONSE STATUS:  200  */
-begin add_shop('CrixMadineMarek', -20, 4); end;/
+begin add_shop('CrixMadineMarek', -20, 4); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('lanett',2,3,26,17);
 /* RESPONSE STATUS:  200  */
-begin add_shop('captainaayla', -5, 5); end;/
+begin add_shop('captainaayla', -5, 5); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('AbrahamLincoln', -9, -12); end;/
+begin add_shop('AbrahamLincoln', -9, -12); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('VosJax', 11, 4); end;/
+begin add_shop('VosJax', 11, 4); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosJax','lanett',2,3,17);
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('industry', 56, 14);
 /* RESPONSE STATUS:  200  */
-begin add_shop('industry', -10, 0); end;/
+begin add_shop('industry', -10, 0); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('koby', 43, 8);
 /* RESPONSE STATUS:  200  */
-begin add_shop('koby', 5, -3); end;/
+begin add_shop('koby', 5, -3); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('WilliamMcKinley', 58, 2);
 /* RESPONSE STATUS:  200  */
-begin add_shop('WilliamMcKinley', 11, -6); end;/
+begin add_shop('WilliamMcKinley', 11, -6); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('AntillesLeia', 9, -9); end;/
+begin add_shop('AntillesLeia', 9, -9); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('emerald', 26, 11);
 /* RESPONSE STATUS:  200  */
-begin add_shop('emerald', -7, -11); end;/
+begin add_shop('emerald', -7, -11); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('jerry', 51, 19);
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('jerry',2,51,69,15);
 /* RESPONSE STATUS:  200  */
-begin add_shop('VosDarklighter', -9, 10); end;/
+begin add_shop('VosDarklighter', -9, 10); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('BarackObama', 0, 13); end;/
+begin add_shop('BarackObama', 0, 13); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('ledger', 8, 28);
 /* RESPONSE STATUS:  200  */
-begin add_shop('ledger', -11, 14); end;/
+begin add_shop('ledger', -11, 14); end;
+/
 /* RESPONSE STATUS:  200  */
-begin add_shop('scot', -20, -18); end;/
+begin add_shop('scot', -20, -18); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('JinnDarklighter','jerry',2,51,1);
 /* RESPONSE STATUS:  200  */
@@ -312,7 +369,8 @@ into inventory (player_name, id_item, inv_amount) values ('AntillesLeia', 1, 24)
 into inventory (player_name, id_item, inv_amount) values ('jerry', 34, 20)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin add_shop('jerry', -10, -15); end;/
+begin add_shop('jerry', -10, -15); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into inventory (player_name, id_item, inv_amount) values ('VosDarklighter', 19, 4)
@@ -335,7 +393,8 @@ into inventory (player_name, id_item, inv_amount) values ('AbrahamLincoln', 9, 2
 into inventory (player_name, id_item, inv_amount) values ('calera', 27, 21)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin add_shop('calera', 5, -9); end;/
+begin add_shop('calera', 5, -9); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','jerry',2,51,7);
 /* RESPONSE STATUS:  200  */
@@ -361,7 +420,8 @@ update transaction set bought_amount = bought_amount + 3 where buyer_name='JinnD
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('lanett', 11, 9);
 /* RESPONSE STATUS:  200  */
-begin add_shop('lanett', 7, 1); end;/
+begin add_shop('lanett', 7, 1); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into inventory (player_name, id_item, inv_amount) values ('industry', 8, 17)
@@ -412,7 +472,8 @@ into inventory (player_name, id_item, inv_amount) values ('coppercenter', 25, 28
 into inventory (player_name, id_item, inv_amount) values ('CrixMadineMarek', 23, 14)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('captainaayla','VosJax','Joel, dont jerk me.  I spent a lot o time settin this one up.'); end;/
+begin new_message('captainaayla','VosJax','Joel, dont jerk me.  I spent a lot o time settin this one up.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into inventory (player_name, id_item, inv_amount) values ('AbrahamLincoln', 40, 28)
@@ -486,7 +547,8 @@ insert into inventory (player_name, id_item, inv_amount) values ('CrixMadineMare
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+12 where player_name='koby' and id_item=43;
 /* RESPONSE STATUS:  200  */
-begin new_message('emerald','AntillesLeia','Come on, Frederico, do you really have to go back? At least stick around for the Festival of the Madonna.'); end;/
+begin new_message('emerald','AntillesLeia','Come on, Frederico, do you really have to go back? At least stick around for the Festival of the Madonna.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into inventory (player_name, id_item, inv_amount) values ('jerry', 19, 11)
@@ -766,7 +828,8 @@ insert into inventory (player_name, id_item, inv_amount) values ('emerald', 25, 
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+36 where player_name='jerry' and id_item=19;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','jerry','Your voice -- its so familiar ...'); end;/
+begin new_message('VosDarklighter','jerry','Your voice -- its so familiar ...'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('BarackObama', 49, 4);
 /* RESPONSE STATUS:  200  */
@@ -830,7 +893,8 @@ update transaction set bought_amount = bought_amount + 5 where buyer_name='VosJa
 /* RESPONSE STATUS:  200  */
 insert into belongs(player_name, faction_name) values ('VosJax','Bimyou');
 /* RESPONSE STATUS:  200  */
-begin new_message('VosJax','WilliamMcKinley','What are you doing?'); end;/
+begin new_message('VosJax','WilliamMcKinley','What are you doing?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('koby', 19, 24);
 /* RESPONSE STATUS:  200  */
@@ -856,11 +920,13 @@ insert into belongs(player_name, faction_name) values ('AbrahamLincoln','Resista
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('VosJax', 15, 21);
 /* RESPONSE STATUS:  200  */
-begin new_message('WilliamMcKinley','calera','So?'); end;/
+begin new_message('WilliamMcKinley','calera','So?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into kills(waskilled_name, killed_name) values ('calera','emerald');
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','jerry','Have you got a match on the bullet?'); end;/
+begin new_message('VosDarklighter','jerry','Have you got a match on the bullet?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into inventory (player_name, id_item, inv_amount) values ('BarackObama', 1, 4)
@@ -1040,7 +1106,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('V
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','AbrahamLincoln',2,23,2)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('industry','BarackObama','No.'); end;/
+begin new_message('industry','BarackObama','No.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into for_sale values('koby',3,19,22,7)
@@ -1660,7 +1727,8 @@ insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) va
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+6 where player_name='industry' and id_item=50;
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','ledger','Shes having a baby. Twins.'); end;/
+begin new_message('koby','ledger','Shes having a baby. Twins.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','industry',3,4,3)
@@ -1772,7 +1840,8 @@ update inventory set inv_amount=inv_amount+15 where player_name='WilliamMcKinley
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('AntillesLeia', 52, 22);
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','ledger','Oh no! No!  Noooo!'); end;/
+begin new_message('AntillesLeia','ledger','Oh no! No!  Noooo!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into inventory (player_name, id_item, inv_amount) values ('emerald', 2, 3)
@@ -2087,7 +2156,8 @@ insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) va
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+44 where player_name='AntillesLeia' and id_item=52;
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','ledger','Your daddys still livin down there from what you told me.  I guess he wouldnt help you any, would he? I wasnt thinking. You dont know anybody?'); end;/
+begin new_message('AntillesLeia','ledger','Your daddys still livin down there from what you told me.  I guess he wouldnt help you any, would he? I wasnt thinking. You dont know anybody?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosDarklighter','jerry',3,23,10)
@@ -2564,7 +2634,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('c
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('captainaayla','coppercenter',2,21,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('calera','VosDarklighter','Shhh...'); end;/
+begin new_message('calera','VosDarklighter','Shhh...'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('VosJax', 7, 6);
 /* RESPONSE STATUS:  200  */
@@ -2830,7 +2901,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+35 where player_name='teo' and id_item=15;
 /* RESPONSE STATUS:  200  */
-begin new_message('teo','BarackObama','We sure Big Al threw him to us?'); end;/
+begin new_message('teo','BarackObama','We sure Big Al threw him to us?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into kills(waskilled_name, killed_name) values ('WilliamMcKinley','coppercenter');
 /* RESPONSE STATUS:  200  */
@@ -3032,7 +3104,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+30 where player_name='captainaayla' and id_item=11;
 /* RESPONSE STATUS:  200  */
-begin new_message('calera','VosJax','Oh, bullshit, Mary. Its because Rhodes is a prick.'); end;/
+begin new_message('calera','VosJax','Oh, bullshit, Mary. Its because Rhodes is a prick.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('VosJax', 39, 19);
 /* RESPONSE STATUS:  200  */
@@ -3330,7 +3403,8 @@ insert into inventory (player_name, id_item, inv_amount) values ('VosDarklighter
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+36 where player_name='BarackObama' and id_item=55;
 /* RESPONSE STATUS:  200  */
-begin new_message('lumiyaaurra','VosDarklighter','Comrade.'); end;/
+begin new_message('lumiyaaurra','VosDarklighter','Comrade.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into inventory (player_name, id_item, inv_amount) values ('lanett', 36, 22)
@@ -3523,7 +3597,8 @@ update transaction set bought_amount = bought_amount + 1 where buyer_name='Abrah
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AbrahamLincoln','koby',2,29,4);
 /* RESPONSE STATUS:  200  */
-begin new_message('AbrahamLincoln','lanett','Luther..get us everything you can on the outbreak of influenza on Bruny Island last month, including photos of the victims.'); end;/
+begin new_message('AbrahamLincoln','lanett','Luther..get us everything you can on the outbreak of influenza on Bruny Island last month, including photos of the victims.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','coppercenter',3,55,1)
@@ -3768,7 +3843,8 @@ into for_sale values('AbrahamLincoln',1,55,12,3)
 into for_sale values('AbrahamLincoln',1,7,98,5)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('calera','VosJax','Hey, Rico, wanna dance ?'); end;/
+begin new_message('calera','VosJax','Hey, Rico, wanna dance ?'); end;
+/
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+35 where player_name='koby' and id_item=26;
 /* RESPONSE STATUS:  200  */
@@ -3823,7 +3899,8 @@ update inventory set inv_amount=inv_amount+86 where player_name='industry' and i
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','BarackObama',3,31,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('WilliamMcKinley','calera','Get away!'); end;/
+begin new_message('WilliamMcKinley','calera','Get away!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into for_sale values('AntillesLeia',3,22,63,1)
@@ -3900,7 +3977,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('A
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AbrahamLincoln','AntillesLeia',3,56,3)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('AbrahamLincoln','calera','Apologies, my sweet.'); end;/
+begin new_message('AbrahamLincoln','calera','Apologies, my sweet.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','BarackObama',3,55,12)
@@ -4069,7 +4147,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+12 where player_name='calera' and id_item=31;
 /* RESPONSE STATUS:  200  */
-begin new_message('calera','VosDarklighter','I know its not the greatest.  Its commercial.'); end;/
+begin new_message('calera','VosDarklighter','I know its not the greatest.  Its commercial.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+19 where player_name='industry' and id_item=16;
 /* RESPONSE STATUS:  200  */
@@ -4545,7 +4624,8 @@ insert into inventory (player_name, id_item, inv_amount) values ('coppercenter',
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('coppercenter','WilliamMcKinley',3,20,3);
 /* RESPONSE STATUS:  200  */
-begin new_message('coppercenter','industry','We do?'); end;/
+begin new_message('coppercenter','industry','We do?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into inventory (player_name, id_item, inv_amount) values ('JinnDarklighter', 7, 6);
 /* RESPONSE STATUS:  200  */
@@ -4658,7 +4738,8 @@ update transaction set bought_amount = bought_amount + 4 where buyer_name='koby'
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','BarackObama',2,34,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','jerry','Get it!'); end;/
+begin new_message('koby','jerry','Get it!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','coppercenter',2,7,10)
@@ -4875,7 +4956,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+17 where player_name='teo' and id_item=50;
 /* RESPONSE STATUS:  200  */
-begin new_message('coppercenter','WilliamMcKinley','Welcome to hard times, Daddy.'); end;/
+begin new_message('coppercenter','WilliamMcKinley','Welcome to hard times, Daddy.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+34 where player_name='JinnDarklighter' and id_item=4;
 /* RESPONSE STATUS:  200  */
@@ -5513,7 +5595,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 2 where buyer_name='coppercenter' and seller_name='WilliamMcKinley' and id_shop=3 and id_item=1;
 /* RESPONSE STATUS:  200  */
-begin new_message('coppercenter','BarackObama','What was it, somebodys daughter?'); end;/
+begin new_message('coppercenter','BarackObama','What was it, somebodys daughter?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into for_sale values('JinnDarklighter',3,7,98,6)
@@ -6034,7 +6117,8 @@ insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) va
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='BarackObama' and seller_name='captainaayla' and id_shop=1 and id_item=16;
 /* RESPONSE STATUS:  200  */
-begin new_message('BarackObama','koby','No. Dont answer it!'); end;/
+begin new_message('BarackObama','koby','No. Dont answer it!'); end;
+/
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+59 where player_name='ledger' and id_item=33;
 /* RESPONSE STATUS:  200  */
@@ -6192,7 +6276,8 @@ update inventory set inv_amount=inv_amount+47 where player_name='AntillesLeia' a
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('emerald','calera',2,17,4);
 /* RESPONSE STATUS:  200  */
-begin new_message('jerry','lumiyaaurra','Are you saying that a failure to restore the heartbeat within nine minutes in itself constitutes bad medical practice?'); end;/
+begin new_message('jerry','lumiyaaurra','Are you saying that a failure to restore the heartbeat within nine minutes in itself constitutes bad medical practice?'); end;
+/
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+3 where player_name='VosDarklighter' and id_item=28;
 /* RESPONSE STATUS:  200  */
@@ -6254,7 +6339,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('s
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('scot','lumiyaaurra',2,39,4)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('teo','emerald','Yeah.'); end;/
+begin new_message('teo','emerald','Yeah.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('coppercenter','VosJax',2,49,1)
@@ -6339,7 +6425,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+13 where player_name='lumiyaaurra' and id_item=47;
 /* RESPONSE STATUS:  200  */
-begin new_message('lumiyaaurra','JinnDarklighter','Ill tell her that.'); end;/
+begin new_message('lumiyaaurra','JinnDarklighter','Ill tell her that.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('captainaayla','CrixMadineMarek',1,56,2);
 /* RESPONSE STATUS:  200  */
@@ -6580,7 +6667,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('e
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('emerald','calera',3,14,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('emerald','jerry','Too late for apologies, Walker.'); end;/
+begin new_message('emerald','jerry','Too late for apologies, Walker.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+20 where player_name='VosDarklighter' and id_item=9;
 /* RESPONSE STATUS:  200  */
@@ -6754,7 +6842,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 10 where player_name='AntillesLeia' and id_shop=2 and id_item=32;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','jerry','You helped him get this job.'); end;/
+begin new_message('VosDarklighter','jerry','You helped him get this job.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+15 where player_name='ledger' and id_item=16;
 /* RESPONSE STATUS:  200  */
@@ -7181,7 +7270,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+55 where player_name='WilliamMcKinley' and id_item=31;
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','lanett','You know, thats really getting annoying.'); end;/
+begin new_message('AntillesLeia','lanett','You know, thats really getting annoying.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into for_sale values('emerald',2,20,75,4)
@@ -8033,7 +8123,8 @@ update for_sale set sale_amount = sale_amount + 2 where player_name='BarackObama
 /* RESPONSE STATUS:  200  */
 update inventory set inv_amount=inv_amount+22 where player_name='ledger' and id_item=50;
 /* RESPONSE STATUS:  200  */
-begin new_message('ledger','emerald','Anxiety.'); end;/
+begin new_message('ledger','emerald','Anxiety.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 2 where buyer_name='teo' and seller_name='industry' and id_shop=1 and id_item=59;
 /* RESPONSE STATUS:  200  */
@@ -8201,7 +8292,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='captainaayla' and seller_name='lanett' and id_shop=2 and id_item=16;
 /* RESPONSE STATUS:  200  */
-begin new_message('AbrahamLincoln','calera','The areas wired for surveillance, theyll be <u>looking</u> for those moves.'); end;/
+begin new_message('AbrahamLincoln','calera','The areas wired for surveillance, theyll be <u>looking</u> for those moves.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','ledger',2,2,1)
@@ -8554,7 +8646,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('l
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosJax','calera',2,17,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosJax','WilliamMcKinley','Thats right -- we cant kill it on the ship, but we can at least keep it at bay -- and maybe drive it into the air lock.'); end;/
+begin new_message('VosJax','WilliamMcKinley','Thats right -- we cant kill it on the ship, but we can at least keep it at bay -- and maybe drive it into the air lock.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('WilliamMcKinley','AntillesLeia',1,9,1)
@@ -8609,7 +8702,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('k
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('WilliamMcKinley','jerry',1,58,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('WilliamMcKinley','BarackObama','And now the jobs yours.'); end;/
+begin new_message('WilliamMcKinley','BarackObama','And now the jobs yours.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 1 where player_name='JinnDarklighter' and id_shop=3 and id_item=17;
 /* RESPONSE STATUS:  200  */
@@ -8867,7 +8961,8 @@ update transaction set bought_amount = bought_amount + 7 where buyer_name='jerry
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('BarackObama','lumiyaaurra',3,33,18);
 /* RESPONSE STATUS:  200  */
-begin new_message('scot','VosJax','Maybe they already have.'); end;/
+begin new_message('scot','VosJax','Maybe they already have.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update kills set count_kills = count_kills+1 where waskilled_name='WilliamMcKinley' and killed_name='teo';
 /* RESPONSE STATUS:  200  */
@@ -9143,7 +9238,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('j
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','AntillesLeia',3,15,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('jerry','lumiyaaurra','Jimmy you look like youre about to fuckin die right here --'); end;/
+begin new_message('jerry','lumiyaaurra','Jimmy you look like youre about to fuckin die right here --'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosDarklighter','lanett',3,31,5)
@@ -9464,7 +9560,8 @@ into for_sale values('AntillesLeia',2,7,13,1)
 into for_sale values('AntillesLeia',2,57,37,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','BarackObama','Oh. No. Strictly dryland.'); end;/
+begin new_message('VosDarklighter','BarackObama','Oh. No. Strictly dryland.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('BarackObama','captainaayla',3,56,4);
 /* RESPONSE STATUS:  200  */
@@ -9544,7 +9641,8 @@ update transaction set bought_amount = bought_amount + 1 where buyer_name='emera
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','ledger',3,24,21);
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','lumiyaaurra','I got a whole thing about people pointin guns at me.'); end;/
+begin new_message('VosDarklighter','lumiyaaurra','I got a whole thing about people pointin guns at me.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into kills(waskilled_name, killed_name) values ('AbrahamLincoln','BarackObama');
 /* RESPONSE STATUS:  200  */
@@ -9655,7 +9753,8 @@ update for_sale set sale_amount = sale_amount + 1 where player_name='VosJax' and
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('VosJax',2,31,42,20);
 /* RESPONSE STATUS:  200  */
-begin new_message('VosJax','ledger','Lunch is in today, have you given it any thought --_'); end;/
+begin new_message('VosJax','ledger','Lunch is in today, have you given it any thought --_'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 3 where buyer_name='industry' and seller_name='lumiyaaurra' and id_shop=3 and id_item=19;
 /* RESPONSE STATUS:  200  */
@@ -9985,7 +10084,8 @@ update kills set count_kills = count_kills+1 where waskilled_name='industry' and
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AbrahamLincoln','ledger',2,6,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('calera','VosJax','Hollywood precinct finds another stiff yesterday. Not too far from here. This ones better looking than the doc.'); end;/
+begin new_message('calera','VosJax','Hollywood precinct finds another stiff yesterday. Not too far from here. This ones better looking than the doc.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into for_sale values('koby',3,1,18,3)
@@ -10099,7 +10199,8 @@ insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) va
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='koby' and seller_name='captainaayla' and id_shop=3 and id_item=8;
 /* RESPONSE STATUS:  200  */
-begin new_message('emerald','jerry','Bullshit. Martys plan is only about efficiency. Ive got two cousins on the job, you think Id work for him if I didnt believe in it?'); end;/
+begin new_message('emerald','jerry','Bullshit. Martys plan is only about efficiency. Ive got two cousins on the job, you think Id work for him if I didnt believe in it?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('BarackObama','ledger',1,56,1)
@@ -10148,7 +10249,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('j
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('ledger','teo',1,10,8)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('ledger','koby','I hardly knew the guy. Why be impolite to strangers?'); end;/
+begin new_message('ledger','koby','I hardly knew the guy. Why be impolite to strangers?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('scot','CrixMadineMarek',1,20,1)
@@ -10248,7 +10350,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='koby' and seller_name='lumiyaaurra' and id_shop=3 and id_item=43;
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','captainaayla','Um, Dr. Evil, Prince Charles did have an affair. He admitted it, and they are now divorced, actually.'); end;/
+begin new_message('AntillesLeia','captainaayla','Um, Dr. Evil, Prince Charles did have an affair. He admitted it, and they are now divorced, actually.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into for_sale values('emerald',3,16,64,1)
@@ -10401,7 +10504,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('A
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosDarklighter','captainaayla',1,4,2)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','BarackObama','Music to my ears! Whatever you said. Speak, speak, speak, my magnificent friend, speak!'); end;/
+begin new_message('VosDarklighter','BarackObama','Music to my ears! Whatever you said. Speak, speak, speak, my magnificent friend, speak!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('teo','AbrahamLincoln',1,16,1)
@@ -10416,7 +10520,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 1 where player_name='JinnDarklighter' and id_shop=1 and id_item=31;
 /* RESPONSE STATUS:  200  */
-begin new_message('JinnDarklighter','ledger','Not for you.'); end;/
+begin new_message('JinnDarklighter','ledger','Not for you.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 2 where player_name='lumiyaaurra' and id_shop=1 and id_item=21;
 /* RESPONSE STATUS:  200  */
@@ -10693,7 +10798,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('t
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('coppercenter','calera',1,55,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('lumiyaaurra','JinnDarklighter','Atta-go.'); end;/
+begin new_message('lumiyaaurra','JinnDarklighter','Atta-go.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update kills set count_kills = count_kills+1 where waskilled_name='WilliamMcKinley' and killed_name='CrixMadineMarek';
 /* RESPONSE STATUS:  200  */
@@ -10837,7 +10943,8 @@ update transaction set bought_amount = bought_amount + 3 where buyer_name='Antil
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','teo',1,14,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('jerry','industry','What will it take?  What do you want? Just tell me, Jimmy!'); end;/
+begin new_message('jerry','industry','What will it take?  What do you want? Just tell me, Jimmy!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('ledger','BarackObama',2,48,1);
 /* RESPONSE STATUS:  200  */
@@ -10855,7 +10962,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('t
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('teo','industry',3,25,5)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('AbrahamLincoln','VosJax','Why do you think I called?'); end;/
+begin new_message('AbrahamLincoln','VosJax','Why do you think I called?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','AbrahamLincoln',2,3,3)
@@ -11243,7 +11351,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('i
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','scot',3,35,2)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','AntillesLeia','You dont have to apologize. Im too much of a cynic. You actually seem to be trying to figure things out -- dont mind me.'); end;/
+begin new_message('koby','AntillesLeia','You dont have to apologize. Im too much of a cynic. You actually seem to be trying to figure things out -- dont mind me.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','scot',2,33,8)
@@ -11325,7 +11434,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('c
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','scot',2,19,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('calera','VosDarklighter','WISH HE WAS MINE.  THAT HANDSOME BOY OVER THERE, THE ONE WITH THE WAVY HAIR.'); end;/
+begin new_message('calera','VosDarklighter','WISH HE WAS MINE.  THAT HANDSOME BOY OVER THERE, THE ONE WITH THE WAVY HAIR.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosJax','VosDarklighter',3,3,1)
@@ -11385,7 +11495,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('B
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('ledger','CrixMadineMarek',3,11,2)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('scot','lumiyaaurra','Harry?'); end;/
+begin new_message('scot','lumiyaaurra','Harry?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('coppercenter','AntillesLeia',2,25,1)
@@ -11527,7 +11638,8 @@ update for_sale set sale_amount = sale_amount + 11 where player_name='captainaay
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 2 where player_name='captainaayla' and id_shop=3 and id_item=46;
 /* RESPONSE STATUS:  200  */
-begin new_message('captainaayla','teo','I think youre a louse.'); end;/
+begin new_message('captainaayla','teo','I think youre a louse.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','scot',2,19,1);
 /* RESPONSE STATUS:  200  */
@@ -11942,7 +12054,8 @@ update transaction set bought_amount = bought_amount + 2 where buyer_name='indus
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('scot','jerry',1,40,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('coppercenter','WilliamMcKinley','Alright!'); end;/
+begin new_message('coppercenter','WilliamMcKinley','Alright!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('JinnDarklighter','coppercenter',2,51,4)
@@ -12773,7 +12886,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('k
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','ledger',3,47,8)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','VosDarklighter','My Mary -- shes not in Japan, shes single, and shes got no rugrats. She does have a little gambling problem, she plays the football cards a bit too much, but shes a babe, a surgeon babe!'); end;/
+begin new_message('AntillesLeia','VosDarklighter','My Mary -- shes not in Japan, shes single, and shes got no rugrats. She does have a little gambling problem, she plays the football cards a bit too much, but shes a babe, a surgeon babe!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('emerald','ledger',1,21,1)
@@ -13019,7 +13133,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('V
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','lumiyaaurra',2,16,3)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','AntillesLeia','Oh no!  No!  Shit!'); end;/
+begin new_message('koby','AntillesLeia','Oh no!  No!  Shit!'); end;
+/
 /* RESPONSE STATUS:  200  */
 update kills set count_kills = count_kills+1 where waskilled_name='ledger' and killed_name='WilliamMcKinley';
 /* RESPONSE STATUS:  200  */
@@ -13096,7 +13211,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','VosJax',2,58,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('jerry','JinnDarklighter','Get the fuck out of here, honey... What do we got?'); end;/
+begin new_message('jerry','JinnDarklighter','Get the fuck out of here, honey... What do we got?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('BarackObama','lumiyaaurra',1,39,1)
@@ -13166,7 +13282,8 @@ update for_sale set sale_amount = sale_amount + 15 where player_name='VosJax' an
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('VosJax',2,16,15,29);
 /* RESPONSE STATUS:  200  */
-begin new_message('VosJax','WilliamMcKinley','God forgive you, for how you done me...'); end;/
+begin new_message('VosJax','WilliamMcKinley','God forgive you, for how you done me...'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','BarackObama',3,1,1);
 /* RESPONSE STATUS:  200  */
@@ -13294,7 +13411,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('c
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','captainaayla',1,52,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','ledger','Talk to the pipe, Mrs. Peel. That usually helps. Dont worry about me being invisible. Other than that Im perfectly normal.'); end;/
+begin new_message('AntillesLeia','ledger','Talk to the pipe, Mrs. Peel. That usually helps. Dont worry about me being invisible. Other than that Im perfectly normal.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('jerry',2,52,21,2);
 /* RESPONSE STATUS:  200  */
@@ -13441,7 +13559,8 @@ update for_sale set sale_amount = sale_amount + 4 where player_name='lanett' and
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('lanett',3,6,34,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','jerry','Im happy to cooperate.  You dont need to tie me down.'); end;/
+begin new_message('koby','jerry','Im happy to cooperate.  You dont need to tie me down.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('WilliamMcKinley','industry',3,58,2)
@@ -13477,7 +13596,8 @@ update transaction set bought_amount = bought_amount + 1 where buyer_name='caler
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','koby',1,45,2);
 /* RESPONSE STATUS:  200  */
-begin new_message('industry','teo','Thanks.  But this morning I was thinking about it and I realized that I looked forward to it all year. And then I thought "Gee. That seems awfully silly. That seems like an awfully long time to be waiting for just one moment, dont you think?"'); end;/
+begin new_message('industry','teo','Thanks.  But this morning I was thinking about it and I realized that I looked forward to it all year. And then I thought "Gee. That seems awfully silly. That seems like an awfully long time to be waiting for just one moment, dont you think?"'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','scot',2,28,3);
 /* RESPONSE STATUS:  200  */
@@ -13598,7 +13718,8 @@ update transaction set bought_amount = bought_amount + 4 where buyer_name='caler
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','WilliamMcKinley',1,8,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('industry','teo','Dude, what are you doing here?'); end;/
+begin new_message('industry','teo','Dude, what are you doing here?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into kills(waskilled_name, killed_name) values ('captainaayla','WilliamMcKinley');
 /* RESPONSE STATUS:  200  */
@@ -13915,7 +14036,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 insert into kills(waskilled_name, killed_name) values ('industry','VosDarklighter');
 /* RESPONSE STATUS:  200  */
-begin new_message('BarackObama','koby','I guess well just have to kill her.'); end;/
+begin new_message('BarackObama','koby','I guess well just have to kill her.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('coppercenter','scot',1,1,1)
@@ -13957,7 +14079,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('c
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','ledger',3,10,3)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('calera','VosJax','Im trying to bust the Tijuana Cartel.'); end;/
+begin new_message('calera','VosJax','Im trying to bust the Tijuana Cartel.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='VosJax' and seller_name='scot' and id_shop=1 and id_item=57;
 /* RESPONSE STATUS:  200  */
@@ -14210,7 +14333,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('k
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','AbrahamLincoln',2,51,3)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','emerald','Corporal Hicks!?'); end;/
+begin new_message('koby','emerald','Corporal Hicks!?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('WilliamMcKinley','VosDarklighter',2,52,1)
@@ -14254,7 +14378,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('V
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('ledger','AntillesLeia',2,58,3)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('ledger','koby','What?'); end;/
+begin new_message('ledger','koby','What?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into for_sale values('teo',1,60,91,1)
@@ -14666,7 +14791,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('i
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','lanett',3,58,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('WilliamMcKinley','captainaayla','And thats what you were going to do in the Valley?'); end;/
+begin new_message('WilliamMcKinley','captainaayla','And thats what you were going to do in the Valley?'); end;
+/
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 5 where player_name='coppercenter' and id_shop=3 and id_item=47;
 /* RESPONSE STATUS:  200  */
@@ -14694,7 +14820,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('c
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AbrahamLincoln','AntillesLeia',1,16,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('AbrahamLincoln','AntillesLeia','I dont want to go.'); end;/
+begin new_message('AbrahamLincoln','AntillesLeia','I dont want to go.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 2 where buyer_name='calera' and seller_name='coppercenter' and id_shop=3 and id_item=55;
 /* RESPONSE STATUS:  200  */
@@ -14966,7 +15093,8 @@ update transaction set bought_amount = bought_amount + 1 where buyer_name='coppe
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('CrixMadineMarek','lumiyaaurra',3,56,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('lanett','ledger','Its more than that.  It could be more than that.  I want Hunt paid.'); end;/
+begin new_message('lanett','ledger','Its more than that.  It could be more than that.  I want Hunt paid.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('AbrahamLincoln',2,29,28,1);
 /* RESPONSE STATUS:  200  */
@@ -15645,7 +15773,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('e
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','industry',3,39,3)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','jerry','Thats okay, ROK.'); end;/
+begin new_message('VosDarklighter','jerry','Thats okay, ROK.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('BarackObama','scot',1,45,3)
@@ -15782,7 +15911,8 @@ update transaction set bought_amount = bought_amount + 3 where buyer_name='VosDa
 /* RESPONSE STATUS:  200  */
 insert into kills(waskilled_name, killed_name) values ('CrixMadineMarek','VosDarklighter');
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','lumiyaaurra','Thank you, Panes.'); end;/
+begin new_message('VosDarklighter','lumiyaaurra','Thank you, Panes.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('JinnDarklighter','AntillesLeia',1,17,1)
@@ -15988,7 +16118,8 @@ insert into for_sale values('koby',3,17,35,3);
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','teo',2,16,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','VosDarklighter','Ha, ha.'); end;/
+begin new_message('AntillesLeia','VosDarklighter','Ha, ha.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','teo',1,25,1);
 /* RESPONSE STATUS:  200  */
@@ -16242,7 +16373,8 @@ insert into kills(waskilled_name, killed_name) values ('AbrahamLincoln','copperc
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 2 where buyer_name='coppercenter' and seller_name='ledger' and id_shop=2 and id_item=9;
 /* RESPONSE STATUS:  200  */
-begin new_message('coppercenter','VosJax','I imagine so.'); end;/
+begin new_message('coppercenter','VosJax','I imagine so.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('JinnDarklighter','BarackObama',3,38,1);
 /* RESPONSE STATUS:  200  */
@@ -16250,7 +16382,8 @@ update transaction set bought_amount = bought_amount + 4 where buyer_name='JinnD
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('lumiyaaurra','AntillesLeia',1,49,3);
 /* RESPONSE STATUS:  200  */
-begin new_message('lanett','BarackObama','Can you guess what Im going to say next?'); end;/
+begin new_message('lanett','BarackObama','Can you guess what Im going to say next?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','teo',1,31,2)
@@ -16322,7 +16455,8 @@ update transaction set bought_amount = bought_amount + 1 where buyer_name='VosDa
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosDarklighter','coppercenter',3,50,17);
 /* RESPONSE STATUS:  200  */
-begin new_message('teo','CrixMadineMarek','Sarah Packard... Bert Gordon.'); end;/
+begin new_message('teo','CrixMadineMarek','Sarah Packard... Bert Gordon.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into kills(waskilled_name, killed_name) values ('calera','lanett');
 /* RESPONSE STATUS:  200  */
@@ -16857,7 +16991,8 @@ into for_sale values('VosDarklighter',2,58,73,19)
 into for_sale values('VosDarklighter',2,24,17,2)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','jerry','--were working on the last guy now and were going all the way--that fifth man was Haldeman.'); end;/
+begin new_message('VosDarklighter','jerry','--were working on the last guy now and were going all the way--that fifth man was Haldeman.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 22 where buyer_name='BarackObama' and seller_name='WilliamMcKinley' and id_shop=1 and id_item=59;
 /* RESPONSE STATUS:  200  */
@@ -17085,7 +17220,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('c
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('CrixMadineMarek','koby',2,48,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('lanett','ledger','Dude, its us. Let us in.'); end;/
+begin new_message('lanett','ledger','Dude, its us. Let us in.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('captainaayla','AntillesLeia',2,23,1)
@@ -17157,7 +17293,8 @@ update kills set count_kills = count_kills+1 where waskilled_name='WilliamMcKinl
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 7 where player_name='industry' and id_shop=3 and id_item=56;
 /* RESPONSE STATUS:  200  */
-begin new_message('industry','AbrahamLincoln','Sure - my pal on the paper. Shes subbing for the society editor tonight.'); end;/
+begin new_message('industry','AbrahamLincoln','Sure - my pal on the paper. Shes subbing for the society editor tonight.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','CrixMadineMarek',1,8,1)
@@ -17251,7 +17388,8 @@ update for_sale set sale_amount = sale_amount + 12 where player_name='industry' 
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','emerald',1,11,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('ledger','koby','Its my job to ask the questions. Yours to answer them.'); end;/
+begin new_message('ledger','koby','Its my job to ask the questions. Yours to answer them.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('coppercenter','industry',3,39,1)
@@ -17616,7 +17754,8 @@ update for_sale set sale_amount = sale_amount + 1 where player_name='calera' and
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('calera',1,38,14,4);
 /* RESPONSE STATUS:  200  */
-begin new_message('calera','ledger','I led no massacres.'); end;/
+begin new_message('calera','ledger','I led no massacres.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','JinnDarklighter',1,15,1)
@@ -18446,7 +18585,8 @@ update transaction set bought_amount = bought_amount + 3 where buyer_name='VosJa
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','industry',3,56,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','ledger','No, I did not.'); end;/
+begin new_message('koby','ledger','No, I did not.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='AntillesLeia' and seller_name='koby' and id_shop=3 and id_item=26;
 /* RESPONSE STATUS:  200  */
@@ -19501,7 +19641,8 @@ update kills set count_kills = count_kills+1 where waskilled_name='BarackObama' 
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','VosJax',2,32,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','ledger','Its the political cost of doing business, George.'); end;/
+begin new_message('koby','ledger','Its the political cost of doing business, George.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 1 where player_name='WilliamMcKinley' and id_shop=3 and id_item=3;
 /* RESPONSE STATUS:  200  */
@@ -20110,7 +20251,8 @@ update transaction set bought_amount = bought_amount + 8 where buyer_name='Antil
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','calera',3,47,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('jerry','industry','Four in Milwaukee.'); end;/
+begin new_message('jerry','industry','Four in Milwaukee.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('BarackObama','koby',3,47,1);
 /* RESPONSE STATUS:  200  */
@@ -20693,7 +20835,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('c
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','teo',2,4,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosJax','ledger','Oh, Rob, shut up.'); end;/
+begin new_message('VosJax','ledger','Oh, Rob, shut up.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','scot',1,43,12);
 /* RESPONSE STATUS:  200  */
@@ -20767,7 +20910,8 @@ update transaction set bought_amount = bought_amount + 2 where buyer_name='VosJa
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('industry','lanett',2,57,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','ledger','Franny?'); end;/
+begin new_message('AntillesLeia','ledger','Franny?'); end;
+/
 /* RESPONSE STATUS:  200  */
 update kills set count_kills = count_kills+1 where waskilled_name='captainaayla' and killed_name='ledger';
 /* RESPONSE STATUS:  200  */
@@ -21000,7 +21144,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('C
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('CrixMadineMarek','VosJax',2,29,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('CrixMadineMarek','lanett','Right, right.'); end;/
+begin new_message('CrixMadineMarek','lanett','Right, right.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='lanett' and seller_name='AbrahamLincoln' and id_shop=2 and id_item=49;
 /* RESPONSE STATUS:  200  */
@@ -21164,7 +21309,8 @@ insert into for_sale values('AbrahamLincoln',3,4,53,1);
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AbrahamLincoln','emerald',3,57,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('VosJax','ledger','Yeah? Well,... Im sure shes not a total loss.'); end;/
+begin new_message('VosJax','ledger','Yeah? Well,... Im sure shes not a total loss.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','emerald',2,36,1)
@@ -21393,7 +21539,8 @@ update for_sale set sale_amount = sale_amount + 3 where player_name='captainaayl
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 1 where player_name='captainaayla' and id_shop=2 and id_item=21;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosJax','WilliamMcKinley','Ill bet you a quarter that eyewash stuff was nonprescription. And Ill bet you another quarter he hasnt said anything to Mr. Haller.'); end;/
+begin new_message('VosJax','WilliamMcKinley','Ill bet you a quarter that eyewash stuff was nonprescription. And Ill bet you another quarter he hasnt said anything to Mr. Haller.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','industry',2,23,12)
@@ -21629,7 +21776,8 @@ insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) va
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 10 where buyer_name='koby' and seller_name='AntillesLeia' and id_shop=3 and id_item=35;
 /* RESPONSE STATUS:  200  */
-begin new_message('WilliamMcKinley','BarackObama','So do we.  And it seems to have picked up something on its travels.'); end;/
+begin new_message('WilliamMcKinley','BarackObama','So do we.  And it seems to have picked up something on its travels.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('emerald','jerry',1,18,1)
@@ -21656,7 +21804,8 @@ update transaction set bought_amount = bought_amount + 2 where buyer_name='teo' 
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('teo','koby',2,55,12);
 /* RESPONSE STATUS:  200  */
-begin new_message('teo','industry','Not good enough, man. They planted something inside me. Im on my own countdown.'); end;/
+begin new_message('teo','industry','Not good enough, man. They planted something inside me. Im on my own countdown.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('JinnDarklighter','teo',3,10,1)
@@ -21746,7 +21895,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('l
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('CrixMadineMarek','scot',2,29,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('captainaayla','teo','Good morning, Julius. Hows our patient today?'); end;/
+begin new_message('captainaayla','teo','Good morning, Julius. Hows our patient today?'); end;
+/
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 6 where player_name='VosJax' and id_shop=2 and id_item=56;
 /* RESPONSE STATUS:  200  */
@@ -21798,7 +21948,8 @@ update transaction set bought_amount = bought_amount + 1 where buyer_name='CrixM
 /* RESPONSE STATUS:  200  */
 update kills set count_kills = count_kills+1 where waskilled_name='jerry' and killed_name='captainaayla';
 /* RESPONSE STATUS:  200  */
-begin new_message('captainaayla','teo','Why, you going to make me a better offer?'); end;/
+begin new_message('captainaayla','teo','Why, you going to make me a better offer?'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 2 where buyer_name='AbrahamLincoln' and seller_name='jerry' and id_shop=2 and id_item=31;
 /* RESPONSE STATUS:  200  */
@@ -21860,7 +22011,8 @@ update kills set count_kills = count_kills+1 where waskilled_name='VosDarklighte
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 2 where buyer_name='industry' and seller_name='scot' and id_shop=2 and id_item=55;
 /* RESPONSE STATUS:  200  */
-begin new_message('industry','BarackObama','What are you so grouchy about?'); end;/
+begin new_message('industry','BarackObama','What are you so grouchy about?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','lanett',2,43,1);
 /* RESPONSE STATUS:  200  */
@@ -21985,7 +22137,8 @@ update for_sale set sale_amount = sale_amount + 1 where player_name='koby' and i
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 1 where player_name='koby' and id_shop=1 and id_item=56;
 /* RESPONSE STATUS:  200  */
-begin new_message('AntillesLeia','lanett','The sea and I dont agree with each other.  Where we off to?'); end;/
+begin new_message('AntillesLeia','lanett','The sea and I dont agree with each other.  Where we off to?'); end;
+/
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 6 where player_name='emerald' and id_shop=1 and id_item=21;
 /* RESPONSE STATUS:  200  */
@@ -22103,9 +22256,11 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('l
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('ledger','AbrahamLincoln',2,36,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('ledger','koby','Asia can be found to the west -- and I will prove it.'); end;/
+begin new_message('ledger','koby','Asia can be found to the west -- and I will prove it.'); end;
+/
 /* RESPONSE STATUS:  200  */
-begin new_message('coppercenter','industry','I knew that.'); end;/
+begin new_message('coppercenter','industry','I knew that.'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='JinnDarklighter' and seller_name='calera' and id_shop=1 and id_item=33;
 /* RESPONSE STATUS:  200  */
@@ -22134,7 +22289,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('C
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('CrixMadineMarek','captainaayla',1,34,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('AbrahamLincoln','VosJax','Whered you get this, Mayo? This is really wonder work.'); end;/
+begin new_message('AbrahamLincoln','VosJax','Whered you get this, Mayo? This is really wonder work.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','scot',3,14,3);
 /* RESPONSE STATUS:  200  */
@@ -22264,7 +22420,8 @@ into for_sale values('WilliamMcKinley',3,2,36,5)
 into for_sale values('WilliamMcKinley',3,11,21,6)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('emerald','AntillesLeia','Im going to find him.  Because hed find me.'); end;/
+begin new_message('emerald','AntillesLeia','Im going to find him.  Because hed find me.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','emerald',3,52,1)
@@ -23343,7 +23500,8 @@ update kills set count_kills = count_kills+1 where waskilled_name='VosDarklighte
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('captainaayla','teo',2,45,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('AbrahamLincoln','calera','Maybe Charles does.'); end;/
+begin new_message('AbrahamLincoln','calera','Maybe Charles does.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','scot',3,20,3)
@@ -23433,7 +23591,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 3 where buyer_name='BarackObama' and seller_name='VosDarklighter' and id_shop=1 and id_item=26;
 /* RESPONSE STATUS:  200  */
-begin new_message('scot','VosJax','Make a left here. I want to stop.'); end;/
+begin new_message('scot','VosJax','Make a left here. I want to stop.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('teo','VosDarklighter',2,49,6);
 /* RESPONSE STATUS:  200  */
@@ -23754,7 +23913,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('V
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosDarklighter','captainaayla',3,26,5)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosDarklighter','jerry','Lets go.'); end;/
+begin new_message('VosDarklighter','jerry','Lets go.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('JinnDarklighter','lanett',1,50,1)
@@ -23813,7 +23973,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 15 where buyer_name='lanett' and seller_name='VosDarklighter' and id_shop=2 and id_item=18;
 /* RESPONSE STATUS:  200  */
-begin new_message('lanett','industry','I have something even better.'); end;/
+begin new_message('lanett','industry','I have something even better.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('captainaayla','koby',3,48,2)
@@ -24149,7 +24310,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('V
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('BarackObama','ledger',1,27,3)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('BarackObama','koby','I want to fly jets, sir!'); end;/
+begin new_message('BarackObama','koby','I want to fly jets, sir!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('scot','teo',1,39,1)
@@ -24326,7 +24488,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('A
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('emerald','industry',3,47,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('emerald','VosDarklighter','I dont need to be lectured by you. I was out saving the galaxy when your grandfather was still in diapers. And frankly, I think the galaxy owes me one  I was like you once- so worried about duty and obligations that I couldnt see anything past this uniform. And in the end, what did it get me? Nothin'); end;/
+begin new_message('emerald','VosDarklighter','I dont need to be lectured by you. I was out saving the galaxy when your grandfather was still in diapers. And frankly, I think the galaxy owes me one  I was like you once- so worried about duty and obligations that I couldnt see anything past this uniform. And in the end, what did it get me? Nothin'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','lumiyaaurra',1,45,1);
 /* RESPONSE STATUS:  200  */
@@ -24751,7 +24914,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 insert into for_sale values('WilliamMcKinley',2,3,5,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('WilliamMcKinley','BarackObama','Its a pretty massive heart attack. His lungs have filled with fluid, and, well... it seems as though his body is just... shutting down.'); end;/
+begin new_message('WilliamMcKinley','BarackObama','Its a pretty massive heart attack. His lungs have filled with fluid, and, well... it seems as though his body is just... shutting down.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('emerald','VosDarklighter',2,18,5);
 /* RESPONSE STATUS:  200  */
@@ -24781,7 +24945,8 @@ update transaction set bought_amount = bought_amount + 11 where buyer_name='Anti
 /* RESPONSE STATUS:  200  */
 update kills set count_kills = count_kills+1 where waskilled_name='AbrahamLincoln' and killed_name='emerald';
 /* RESPONSE STATUS:  200  */
-begin new_message('emerald','VosDarklighter','Maybe youre more one of us than you think...sir.'); end;/
+begin new_message('emerald','VosDarklighter','Maybe youre more one of us than you think...sir.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosDarklighter','CrixMadineMarek',1,55,8);
 /* RESPONSE STATUS:  200  */
@@ -24971,7 +25136,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('A
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AntillesLeia','jerry',2,56,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('jerry','industry','Are you serious? This is the break weve been waiting for!'); end;/
+begin new_message('jerry','industry','Are you serious? This is the break weve been waiting for!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('ledger','teo',1,29,1)
@@ -25430,7 +25596,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('j
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','WilliamMcKinley',1,11,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('jerry','industry','I try to imagine how theyll look when theyre done.  I try to imagine how well fit in with them... our place in the world.'); end;/
+begin new_message('jerry','industry','I try to imagine how theyll look when theyre done.  I try to imagine how well fit in with them... our place in the world.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('ledger','lumiyaaurra',1,7,15);
 /* RESPONSE STATUS:  200  */
@@ -25963,7 +26130,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('B
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('JinnDarklighter','AntillesLeia',1,40,3)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('captainaayla','CrixMadineMarek','You been drinkin, huh?'); end;/
+begin new_message('captainaayla','CrixMadineMarek','You been drinkin, huh?'); end;
+/
 /* RESPONSE STATUS:  200  */
 update kills set count_kills = count_kills+1 where waskilled_name='VosJax' and killed_name='calera';
 /* RESPONSE STATUS:  200  */
@@ -26002,7 +26170,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 1 where buyer_name='AntillesLeia' and seller_name='ledger' and id_shop=1 and id_item=20;
 /* RESPONSE STATUS:  200  */
-begin new_message('emerald','VosDarklighter','Its a weak man who tests his mettle on the backs of children --'); end;/
+begin new_message('emerald','VosDarklighter','Its a weak man who tests his mettle on the backs of children --'); end;
+/
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 8 where buyer_name='jerry' and seller_name='scot' and id_shop=1 and id_item=60;
 /* RESPONSE STATUS:  200  */
@@ -26202,7 +26371,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('e
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('emerald','AntillesLeia',2,16,2)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('emerald','VosDarklighter','Lauren called me that when we were little. Daisy. No one knew but us.'); end;/
+begin new_message('emerald','VosDarklighter','Lauren called me that when we were little. Daisy. No one knew but us.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','WilliamMcKinley',3,18,1);
 /* RESPONSE STATUS:  200  */
@@ -26362,7 +26532,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('A
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('AbrahamLincoln','ledger',2,47,10)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('AbrahamLincoln','calera','No.  We keep it in the backyard.  Of course, in the house.  Its in there.'); end;/
+begin new_message('AbrahamLincoln','calera','No.  We keep it in the backyard.  Of course, in the house.  Its in there.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into kills(waskilled_name, killed_name) values ('scot','industry');
 /* RESPONSE STATUS:  200  */
@@ -26435,7 +26606,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('JinnDarklighter','VosDarklighter',3,32,1);
 /* RESPONSE STATUS:  200  */
-begin new_message('JinnDarklighter','VosDarklighter','Jesus Christ. Youre going to have to go out the back. The data that you copied with your toy. Tomorrow, at six oclock. Look it up. Were taking a trip. Be there at six and youll have plenty to tell your people.'); end;/
+begin new_message('JinnDarklighter','VosDarklighter','Jesus Christ. Youre going to have to go out the back. The data that you copied with your toy. Tomorrow, at six oclock. Look it up. Were taking a trip. Be there at six and youll have plenty to tell your people.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('captainaayla','AntillesLeia',1,4,2);
 /* RESPONSE STATUS:  200  */
@@ -26704,7 +26876,8 @@ select * from dual;
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 10 where buyer_name='VosJax' and seller_name='VosDarklighter' and id_shop=1 and id_item=43;
 /* RESPONSE STATUS:  200  */
-begin new_message('koby','jerry','Mr. Nasty time?'); end;/
+begin new_message('koby','jerry','Mr. Nasty time?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('jerry','VosJax',3,26,5);
 /* RESPONSE STATUS:  200  */
@@ -27115,7 +27288,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('A
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('VosJax','AbrahamLincoln',3,10,2)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('VosJax','ledger','I am happy to hear you say this, Chairman Mao. I have created a reform committee to investigate grievances and we have abolished Inherited Tax, and forgiven all money owed the Government by people who are unable to pay.'); end;/
+begin new_message('VosJax','ledger','I am happy to hear you say this, Chairman Mao. I have created a reform committee to investigate grievances and we have abolished Inherited Tax, and forgiven all money owed the Government by people who are unable to pay.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('koby','VosJax',1,36,7)
@@ -27336,7 +27510,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('A
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('ledger','lumiyaaurra',1,1,1)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('scot','emerald','Its Deputy Riley today, Sid.'); end;/
+begin new_message('scot','emerald','Its Deputy Riley today, Sid.'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('lumiyaaurra','jerry',2,40,4)
@@ -27537,7 +27712,8 @@ update for_sale set sale_amount = sale_amount + 1 where player_name='ledger' and
 /* RESPONSE STATUS:  200  */
 update transaction set bought_amount = bought_amount + 3 where buyer_name='scot' and seller_name='industry' and id_shop=1 and id_item=55;
 /* RESPONSE STATUS:  200  */
-begin new_message('teo','captainaayla','Yes.  You walking to the subway?'); end;/
+begin new_message('teo','captainaayla','Yes.  You walking to the subway?'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('lumiyaaurra','AbrahamLincoln',2,17,1)
@@ -27570,7 +27746,8 @@ into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('c
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('calera','jerry',2,35,2)
 select * from dual;
 /* RESPONSE STATUS:  200  */
-begin new_message('industry','BarackObama','You need a COAT!'); end;/
+begin new_message('industry','BarackObama','You need a COAT!'); end;
+/
 /* RESPONSE STATUS:  200  */
 insert all
 into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('BarackObama','ledger',1,52,1)
@@ -27671,7 +27848,8 @@ update transaction set bought_amount = bought_amount + 3 where buyer_name='Barac
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 8 where player_name='teo' and id_shop=3 and id_item=51;
 /* RESPONSE STATUS:  200  */
-begin new_message('lumiyaaurra','calera','Real men -- white, Christian men -- we fuck a woman. We make her come with our cocks. But the Jew doesnt like to penetrate and thrust -- he cant assert himself that directly -- so he resorts to perversions. Oral sex is technically a perversion, you know that, dont you?  After a woman has been with a'); end;/
+begin new_message('lumiyaaurra','calera','Real men -- white, Christian men -- we fuck a woman. We make her come with our cocks. But the Jew doesnt like to penetrate and thrust -- he cant assert himself that directly -- so he resorts to perversions. Oral sex is technically a perversion, you know that, dont you?  After a woman has been with a'); end;
+/
 /* RESPONSE STATUS:  200  */
 update for_sale set sale_amount = sale_amount + 7 where player_name='koby' and id_shop=2 and id_item=36;
 /* RESPONSE STATUS:  200  */
