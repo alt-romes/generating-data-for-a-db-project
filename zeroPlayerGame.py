@@ -73,7 +73,7 @@ DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standa
 
 # CODE
 class DBC:
-    EXECUTE_URL = 'https://apex.oracle.com/pls/apex/troyka/mod/execute'
+    EXECUTE_URL = ''
 
     def __init__(self):
         self.buffer = []
