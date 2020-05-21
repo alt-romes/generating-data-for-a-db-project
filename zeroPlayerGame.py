@@ -10,12 +10,12 @@ import matplotlib.pyplot as plt
 
 import time
 
-import math  
+import math
 
 # FINE TUNING PARAMETERS
 MAX_GENERATIONS = 1000
-MAX_PLAYERS = 20
-MAX_NUMBER_ITEMS = 100
+MAX_PLAYERS = 20 #20
+MAX_NUMBER_ITEMS = 60 #100
 MAX_SIZE = MAX_PLAYERS
 
 MAX_RANDOM_ADD_ITEMS = 30
@@ -34,7 +34,7 @@ SEND_MESSAGE_CHANCE = 0.01
 INSERT_PLAYERS = "insert into players(name) values('{}')"
 # INSERT_PLAYERS = "Created player {}"
 
-SEND_MESSAGE = "insert into messageThreads(sender_name, receiver_name, message) values ('{}','{}','{}')"
+SEND_MESSAGE = "begin new_message('{}','{}','{}'); end"
 
 INSERT_ITEMS = "insert into items(item_name, item_description) values ('{}','{}')"
 # INSERT_ITEMS = "Created item {}: {}"
@@ -49,7 +49,7 @@ INSERT_IN_FACTION = "insert into factions values ('{}',{},{},{},'{}')"
 
 PLAYER_JOIN_FACTION = "insert into belongs(player_name, faction_name) values ('{}','{}')"
 
-CREATE_SHOP = "insert into shops(player_name, coordx, coordy) values ('{}', {}, {})"
+CREATE_SHOP = "begin add_shop('{}', {}, {}); end"
 # CREATE_SHOP = "Player {} created at {}, {} a new shop: {}"
 
 PLAYER_KILLED = "insert into kills(waskilled_name, killed_name) values ('{}','{}')"
@@ -73,19 +73,21 @@ DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standa
 
 # CODE
 class DBC:
-    EXECUTE_URL = ''
+    EXECUTE_URL = 'https://apex.oracle.com/pls/apex/troyka/mod/execute'
 
     def __init__(self):
         self.buffer = []
 
     def executeInDB(self, command):
-        return
+
         r = requests.post(self.EXECUTE_URL, {"command": command})
+
         error = re.findall('<span style="font-size: 1\.1em;">\n\t\t.*?(ORA-.*?)\n', r.text)
         print("/* RESPONSE STATUS: ", r.status_code, ("ERROR: " + error[0] if len(error)>0 else ""), "*/")
-        return r
 
     def printAndExecute(self, c):
+        # print(c+";")
+
         if (c.split(" ")[0] == "insert" and len(self.buffer)==0) or (c.split(" ")[0] == "insert" and len(self.buffer)>0 and self.buffer[len(self.buffer)-1].split(" ")[2] == c.split(" ")[2]):
             self.buffer.append(c)
         else:
@@ -94,17 +96,22 @@ class DBC:
                 for b in self.buffer:
                     insertManyString += " ".join(b.split(" ")[1:]) + "\n"
                 insertManyString += "select * from dual"
-                print(insertManyString + ";")
+
+                if len(self.buffer) == 1:
+                    insertManyString = self.buffer[0]
+
+
                 self.buffer.clear()
 
+                print(insertManyString + ";")
                 self.executeInDB(insertManyString)
 
             if c.split(" ")[0] == "insert":
                 self.buffer.append(c)
             else:
-                print(c+";")
-
-                self.executeInDB(c)
+                
+                print(c+";"+("/" if c.split(" ")[0]=="begin" else ""))
+                self.executeInDB(c + (";" if c.split(" ")[0]=="begin" else ""))
 
 
     def insertPlayer(self, p):
