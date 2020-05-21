@@ -15,7 +15,7 @@ import math
 # FINE TUNING PARAMETERS
 MAX_GENERATIONS = 1000
 MAX_PLAYERS = 20 #20
-MAX_NUMBER_ITEMS = 60 #100
+MAX_NUMBER_ITEMS = 53 #100
 MAX_SIZE = MAX_PLAYERS
 
 MAX_RANDOM_ADD_ITEMS = 30
@@ -27,19 +27,20 @@ NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 6)
 FRIENDS_PER_PLAYER = int(MAX_PLAYERS / 6)
 
 MIN_DISTANCE_BETWEEN_SHOPS = MAX_SIZE / 5
-NEW_ITEM_CHANCE = 0.4
-SEND_MESSAGE_CHANCE = 0.01
-
+NEW_ITEM_CHANCE = 0.1
+SEND_MESSAGE_CHANCE = 0.05
+NEW_PLAYER_CHANCE = 0.03
+NEW_FACTION_CHANCE = 0.002
 # DATABASE STRINGS
 INSERT_PLAYERS = "insert into players(name) values('{}')"
 # INSERT_PLAYERS = "Created player {}"
 
 SEND_MESSAGE = "begin new_message('{}','{}','{}'); end"
 
-INSERT_ITEMS = "insert into items(item_name, item_description) values ('{}','{}')"
+INSERT_ITEMS = "insert into items(item_name,item_description) values('{}','{}')"
 # INSERT_ITEMS = "Created item {}: {}"
 
-INSERT_ITEMS_INV = "insert into inventory (player_name, id_item, inv_amount) values ('{}', {}, {})"
+INSERT_ITEMS_INV = "insert into inventory (player_name,id_item,inv_amount) values('{}',{},{})"
 # INSERT_ITEMS_INV = "Player {} acquired {}. Amount: {}"
 
 UPDATE_ITEMS_INV = "update inventory set inv_amount=inv_amount+{} where player_name='{}' and id_item={}"
@@ -47,26 +48,28 @@ UPDATE_ITEMS_INV = "update inventory set inv_amount=inv_amount+{} where player_n
 
 INSERT_IN_FACTION = "insert into factions values ('{}',{},{},{},'{}')"
 
-PLAYER_JOIN_FACTION = "insert into belongs(player_name, faction_name) values ('{}','{}')"
+PLAYER_JOIN_FACTION = "begin join_faction('{}','{}'); end"
 
-CREATE_SHOP = "begin add_shop('{}', {}, {}); end"
+CREATE_SHOP = "begin add_shop('{}',{},{}); end"
 # CREATE_SHOP = "Player {} created at {}, {} a new shop: {}"
 
-PLAYER_KILLED = "insert into kills(waskilled_name, killed_name) values ('{}','{}')"
+PLAYER_KILLED = "insert into kills(waskilled_name,killed_name) values('{}','{}')"
 # PLAYER_KILLED = "Player {} was killed by {}"
-UPDATE_PLAYER_KILLED = "update kills set count_kills = count_kills+1 where waskilled_name='{}' and killed_name='{}'"
+UPDATE_PLAYER_KILLED = "update kills set count_kills=count_kills+1 where waskilled_name='{}' and killed_name='{}'"
 
 PUT_ITEM_FOR_SALE = "insert into for_sale values('{}',{},{},{},{})"
 # PUT_ITEM_FOR_SALE = "Player {} in shop {} puts {} for sale for {}. {} available"
 
-UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount = sale_amount + {} where player_name='{}' and id_shop={} and id_item={}"
+UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount=sale_amount+{} where player_name='{}' and id_shop={} and id_item={}"
 # UPDATE_ITEM_FOR_SALE = "{} more items restocked for player {} shop {} item {}"
 
-ITEM_WAS_BOUGHT_FROM_SHOP = "insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('{}','{}',{},{},{})"
+# ITEM_WAS_BOUGHT_FROM_SHOP = "insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('{}','{}',{},{},{})"
 # ITEM_WAS_BOUGHT_FROM_SHOP = "Player {} bought from {}, in shop {} the item {}. Amount: {}"
 
-ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "update transaction set bought_amount = bought_amount + {} where buyer_name='{}' and seller_name='{}' and id_shop={} and id_item={}"
+# ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "update transaction set bought_amount=bought_amount+{} where buyer_name='{}' and seller_name='{}' and id_shop={} and id_item={}"
 # ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "{} more were bought by {} from {}, in shop {} of item {}"
+
+BUY_ITEMS_FROM_SHOP = "begin buy_items('{}','{}',{},{},{}); end"
 
 # FLAIR STRINGS
 DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standard", "A cool looking", "An awesome", "A pretty cool", "Default", "An elementary", "Your usual", "A usual", "An everyday", "Your everyday", "An average looking", "An average", "A conventional", "Your average", "An OK", "A vanilla", "Unique", "A common", "Mainstream", "Your typical", "A typical", "A modest", "A neat", "A bland", "A serious looking", "A decent looking", "A decent", "Pretty nice", "A nice", "An undemanding", "A manageable", "An effortless", "A user-friendly", "A coherent", "An understandable", "An accessible", "Standard", "A basic", "A blunt", "Pure", "Candid", "Some honest", "Some demanding", "A piece of cake but its actually", "You wish itd make sound but it doesnt. Your", "Show it to your friends. Your", "Go crazy with this", "Looks better than you, a good", "But does it fly? A simple", "How will you explain this? Your cool", "A magnificient", "You cant drive it, its a non-drivable", "A sarcastic", "Funny looking", "Has no wheels, but its a decent", "A beautiful", "Looks better than your ex, but youre just holding one more", "How did you even get this", "A rare", "One more", "Close your eyes again, its still just one more", "A f*cking"]
@@ -79,7 +82,6 @@ class DBC:
         self.buffer = []
 
     def executeInDB(self, command):
-
         r = requests.post(self.EXECUTE_URL, {"command": command})
 
         error = re.findall('<span style="font-size: 1\.1em;">\n\t\t.*?(ORA-.*?)\n', r.text)
@@ -88,25 +90,32 @@ class DBC:
     def printAndExecute(self, c):
         # print(c+";")
 
-        if (c.split(" ")[0] == "insert" and len(self.buffer)==0) or (c.split(" ")[0] == "insert" and len(self.buffer)>0 and self.buffer[len(self.buffer)-1].split(" ")[2] == c.split(" ")[2]):
+        if ((c.split(" ")[0] == "insert" or c.split(" ")[0] == "begin") and len(self.buffer)==0) or (c.split(" ")[0] == "insert" and self.buffer[0].split(" ")[2] == c.split(" ")[2]) or (c.split(" ")[0] == "begin" and self.buffer[0].split(" ")[0] == "begin"):
             self.buffer.append(c)
         else:
             if len(self.buffer) > 0:
-                insertManyString = "insert all\n"
-                for b in self.buffer:
-                    insertManyString += " ".join(b.split(" ")[1:]) + "\n"
-                insertManyString += "select * from dual"
-
+                insertManyString = ""
                 if len(self.buffer) == 1:
                     insertManyString = self.buffer[0]
 
+                elif self.buffer[0].split(" ")[0] == "insert":
+                    insertManyString = "insert all\n"
+                    for b in self.buffer:
+                        insertManyString += " ".join(b.split(" ")[1:]) + "\n"
+                    insertManyString += "select * from dual"
+                
+                elif self.buffer[0].split(" ")[0] == "begin":
+                    insertManyString = "begin\n"
+                    for b in self.buffer:
+                        insertManyString += " ".join(b.split(" ")[1:len(b.split(" "))-1]) + "\n"
+                    insertManyString += "end"
 
                 self.buffer.clear()
 
-                print(insertManyString + ";")
-                self.executeInDB(insertManyString)
+                print(insertManyString + ";" + ("" if insertManyString.split(" ")[0]=="insert" else "\n/"))
+                self.executeInDB(insertManyString + ("" if insertManyString.split(" ")[0]=="insert" else ";"))
 
-            if c.split(" ")[0] == "insert":
+            if c.split(" ")[0] == "insert" or c.split(" ")[0] == "begin":
                 self.buffer.append(c)
             else:
                 
@@ -163,11 +172,7 @@ class DBC:
         self.printAndExecute(c)
 
     def shopSoldItem(self, buyerName, sellerName, id_shop, id_item, amount):
-        c = ITEM_WAS_BOUGHT_FROM_SHOP.format(buyerName, sellerName, id_shop+1, id_item+1, amount)
-        self.printAndExecute(c)
-
-    def shopSoldItemToReturningCustomer(self, amount, buyer_name, seller_name, id_shop, id_item):
-        c = ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP.format(amount, buyer_name, seller_name, id_shop+1, id_item+1)
+        c = BUY_ITEMS_FROM_SHOP.format(buyerName, sellerName, id_shop+1, id_item+1, amount)
         self.printAndExecute(c)
 
 DBC = DBC()
@@ -237,12 +242,7 @@ class Shop:
         self.for_sale[iid]['amount'] -= amount
         self.owner.balance += amount*self.for_sale[iid]['price']
 
-        if 'bought' in self.for_sale[iid] and buyerID in self.for_sale[iid]['bought']:
-            self.for_sale[iid]['bought'][buyerID] += amount
-            DBC.shopSoldItemToReturningCustomer(amount, buyerName, self.owner.name, self.id_shop, iid)
-        else:
-            self.for_sale[iid]['bought'][buyerID] = amount
-            DBC.shopSoldItem(buyerName, self.owner.name, self.id_shop, iid, amount)
+        DBC.shopSoldItem(buyerName, self.owner.name, self.id_shop, iid, amount) 
         self.owner.level += amount
 
 
@@ -393,6 +393,18 @@ class Game:
         for p in self.players:
             p.makeFriends(self.players)
 
+    def createPlayer(self):
+        names = set()
+        names.update(map(lambda e: e.replace("_", ""), requests.get("http://names.drycodes.com/1?nameOptions=boy_names&combine=1&case=lower").json()))
+        x = random.randrange(-self.max_size, self.max_size)
+        y = random.randrange(-self.max_size, self.max_size)
+        name = names.pop()
+        if name not in names:
+            p = Player(len(self.players), name[:30], (x, y))
+            self.players.append(p)
+            DBC.insertPlayer(p)
+            p.makeFriends(self.players)
+
 
     def genItems(self):
         allitemsHTML = requests.get('https://minecraft-ids.grahamedgecombe.com/').text
@@ -406,25 +418,44 @@ class Game:
             self.items['weights'].append(random.random())
             DBC.insertItem(item)
 
-    def genFactions(self):
+    def getFactionNames(self):
         factions_string = '1. Mystique - (Mystic in French) 2. Vortex 3. Dynamic 4. Wintersong 5. Villigence 6. Revenge 7. Twisted 8. Kryptic 9. Komorebi - (The Light that seeks through the trees) 10. Twizzle 11. Ethreal 12. Aurora 13. Solitude 14. Echo 15. Twighlight 16. Dawn 17. NecoCrypt 18. Keepers 19. Guardians 20. Purge 21. Velocity 22. Desire 23. Nexus 24. Dimlight 25. Wicked 26. Nefarious - (another word for wicked) 27. Nemophilists - (hunters of the woods) 28. Ukiyo - (Living in the moment; floating world) 29. Exo 30. Mythic - (or just Myth) 31. Kalopsia 32. Irusu - (another word for hiding) 33. Silence 34. Demonic 35. Defiance 36. Enlightment 37. Yoisho - (A world without meaning) 38. Brinille - (a twig) 39. Fernweh 40. Fallen 41. Darkened 42. Elysian - (beautiful) 43. Fresco 44. Amazon 45. Avalanche 46. Nova 47. Bimyou - (not bad, "meh) 48. Savage 49. Resistance 50. Evolved'
-        faction_names = re.findall(r".*?\. (.*?) (- \((.*?)\) |)", factions_string)
+        self.faction_names = re.findall(r".*?\. (.*?) (- \((.*?)\) |)", factions_string)
+
+    def genFactions(self):
+        self.getFactionNames()
 
         self.factions = list()
-        chosenLeaders = [None]
+        self.chosenLeaders = [None]
         for i in range(NUMBER_OF_FACTIONS):
-            namearr = faction_names.pop()
-            f = Faction(namearr[0], random.randrange(4, 12), (random.randrange(-MAX_SIZE, MAX_SIZE), random.randrange(-MAX_SIZE, MAX_SIZE)), (namearr[2] if namearr[2] != '' else 'This is our faction!'))
+            namearr = self.faction_names.pop()
+            f = Faction(namearr[0], random.randrange(5, 8), (random.randrange(-MAX_SIZE, MAX_SIZE), random.randrange(-MAX_SIZE, MAX_SIZE)), (namearr[2] if namearr[2] != '' else 'This is our faction!'))
             leader = None
-            while leader in chosenLeaders:
+            while leader in self.chosenLeaders:
                 leader = random.choice(self.players)
-            chosenLeaders.append(leader)
+            self.chosenLeaders.append(leader)
             f.members[leader] = leader
-            chosenLeaders.append(leader)
             self.factions.append(f)
             leader.faction = f
             DBC.insertFaction(f)
             DBC.playerJoinFaction(leader, f)
+
+    def createFaction(self):
+        namearr = self.faction_names.pop()
+        f = Faction(namearr[0], random.randrange(5, 8), (random.randrange(-MAX_SIZE, MAX_SIZE), random.randrange(-MAX_SIZE, MAX_SIZE)), (namearr[2] if namearr[2] != '' else 'This is our faction!'))
+        leader = None
+        i = 0
+        while leader in self.chosenLeaders and i<len(self.players):
+            leader = random.choice(self.players)
+            i += 1
+        self.chosenLeaders.append(leader)
+        f.members[leader] = leader
+        self.factions.append(f)
+        leader.faction = f
+        DBC.insertFaction(f)
+        DBC.playerJoinFaction(leader, f) 
+
+
 
     def genMessages(self):
         with open("movie_lines.txt", "r") as f:
@@ -470,6 +501,12 @@ class Game:
                     if len(m) > 1:
                         DBC.sendMessage(player, other, m)
 
+
+        if random.random() < NEW_PLAYER_CHANCE:
+            self.createPlayer()
+        
+        if random.random() < NEW_FACTION_CHANCE:
+            self.createFaction()
 
     def run(self):
         # self.graphics = Graphics(self.max_size)
