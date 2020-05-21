@@ -13,27 +13,28 @@ import time
 import math  
 
 # FINE TUNING PARAMETERS
-MAX_GENERATIONS = 1100
-MAX_PLAYERS = 243
-MAX_SIZE = MAX_PLAYERS*2
+MAX_GENERATIONS = 1000
+MAX_PLAYERS = 20
+MAX_NUMBER_ITEMS = 100
+MAX_SIZE = MAX_PLAYERS
 
 MAX_RANDOM_ADD_ITEMS = 30
 MAX_MOVE_IN_DIRECTION = 20
 PLAYER_DEFAULT_HEALTH = 60
 INV_SIZE = 42
-MAX_ITEMS_SOLD_OR_BOUGHT_AT_ONCE = 5
-NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 15)
-FRIENDS_PER_PLAYER = int(MAX_PLAYERS / 14)
+MAX_ITEMS_SOLD_OR_BOUGHT_AT_ONCE = 6
+NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 6)
+FRIENDS_PER_PLAYER = int(MAX_PLAYERS / 6)
 
 MIN_DISTANCE_BETWEEN_SHOPS = MAX_SIZE / 5
-NEW_ITEM_CHANCE = 0.45
+NEW_ITEM_CHANCE = 0.4
 SEND_MESSAGE_CHANCE = 0.01
 
 # DATABASE STRINGS
 INSERT_PLAYERS = "insert into players(name) values('{}')"
 # INSERT_PLAYERS = "Created player {}"
 
-SEND_MESSAGE = "insert into sendsText(sender_name, receiver_name, message) values ('{}','{}','{}')"
+SEND_MESSAGE = "insert into messageThreads(sender_name, receiver_name, message) values ('{}','{}','{}')"
 
 INSERT_ITEMS = "insert into items(item_name, item_description) values ('{}','{}')"
 # INSERT_ITEMS = "Created item {}: {}"
@@ -48,11 +49,12 @@ INSERT_IN_FACTION = "insert into factions values ('{}',{},{},{},'{}')"
 
 PLAYER_JOIN_FACTION = "insert into belongs(player_name, faction_name) values ('{}','{}')"
 
-CREATE_SHOP = "insert into shops(player_name, coordx, coordy, shop_header) values ('{}', {}, {}, '{}')"
+CREATE_SHOP = "insert into shops(player_name, coordx, coordy) values ('{}', {}, {})"
 # CREATE_SHOP = "Player {} created at {}, {} a new shop: {}"
 
-PLAYER_KILLED = "insert into kills (waskilled_name, killed_name) values ('{}','{}')"
+PLAYER_KILLED = "insert into kills(waskilled_name, killed_name) values ('{}','{}')"
 # PLAYER_KILLED = "Player {} was killed by {}"
+UPDATE_PLAYER_KILLED = "update kills set count_kills = count_kills+1 where waskilled_name='{}' and killed_name='{}'"
 
 PUT_ITEM_FOR_SALE = "insert into for_sale values('{}',{},{},{},{})"
 # PUT_ITEM_FOR_SALE = "Player {} in shop {} puts {} for sale for {}. {} available"
@@ -71,10 +73,17 @@ DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standa
 
 # CODE
 class DBC:
-    EXECUTE_URL = ''
+    EXECUTE_URL = 'https://apex.oracle.com/pls/apex/troyka/mod/execute'
 
     def __init__(self):
         self.buffer = []
+
+    def executeInDB(self, command):
+        return
+        r = requests.post(self.EXECUTE_URL, {"command": command})
+        error = re.findall('<span style="font-size: 1\.1em;">\n\t\t.*?(ORA-.*?)\n', r.text)
+        print("/* RESPONSE STATUS: ", r.status_code, ("ERROR: " + error[0] if len(error)>0 else ""), "*/")
+        return r
 
     def printAndExecute(self, c):
         if (c.split(" ")[0] == "insert" and len(self.buffer)==0) or (c.split(" ")[0] == "insert" and len(self.buffer)>0 and self.buffer[len(self.buffer)-1].split(" ")[2] == c.split(" ")[2]):
@@ -86,27 +95,24 @@ class DBC:
                     insertManyString += " ".join(b.split(" ")[1:]) + "\n"
                 insertManyString += "select * from dual"
                 print(insertManyString + ";")
-                r = self.executeInDB(insertManyString)
-                error = re.findall('<span style="font-size: 1\.1em;">\n\t\t.*?(ORA-.*?)\n', r.text)
-                print("/* RESPONSE STATUS: ", r.status_code, ("ERROR: " + error['0'] if len(error)>0 else ""), "*/")
                 self.buffer.clear()
+
+                self.executeInDB(insertManyString)
+
             if c.split(" ")[0] == "insert":
                 self.buffer.append(c)
             else:
                 print(c+";")
-                r = self.executeInDB(c)
-                error = re.findall('<span style="font-size: 1\.1em;">\n\t\t.*?(ORA-.*?)\n', r.text)
-                print("/* RESPONSE STATUS: ", r.status_code, ("ERROR: " + error['0'] if len(error)>0 else ""), "*/")
 
-    def executeInDB(self, command):
-        return requests.post(self.EXECUTE_URL, {"command": command})
+                self.executeInDB(c)
+
 
     def insertPlayer(self, p):
         c = INSERT_PLAYERS.format(p.name)
         self.printAndExecute(c)
 
     def sendMessage(self, p, o, t):
-        c = SEND_MESSAGE.format(p.name, o.name, t.replace("'", "")[:500])
+        c = SEND_MESSAGE.format(p.name, o.name, t.replace("'", "")[:300])
         self.printAndExecute(c)
 
     def updateItemsInv(self, amount, pname, iid):
@@ -126,11 +132,15 @@ class DBC:
         self.printAndExecute(c)
     
     def createShop(self, newShop):
-        c = CREATE_SHOP.format(newShop.owner.name, newShop.position[0], newShop.position[1], newShop.shop_header)
+        c = CREATE_SHOP.format(newShop.owner.name, newShop.position[0], newShop.position[1])
         self.printAndExecute(c)
 
     def playerKilled(self, deadName, attackerName):
         c = PLAYER_KILLED.format(deadName, attackerName)
+        self.printAndExecute(c)
+
+    def updatePlayerKilledCount(self, deadName, attackerName):
+        c = UPDATE_PLAYER_KILLED.format(deadName, attackerName)
         self.printAndExecute(c)
 
     def insertItem(self, item):
@@ -203,7 +213,7 @@ class Shop:
         self.was_shopped_by = []
     
     def makeShopHeader(self):
-        return random.choice(DESC_STARTERS) + " shop."
+        return ""
     
     def putItemForSale(self, iid, amount):
         if iid in self.for_sale:
@@ -241,6 +251,7 @@ class Player:
         self.faction = None
         self.level = 0
         self.friends = []
+        self.hasBeenKilledBy = []
 
     def makeFriends(self, possibleFriends):
         newFriends = random.choices(possibleFriends, k=(FRIENDS_PER_PLAYER if FRIENDS_PER_PLAYER <= len(possibleFriends) else len(possibleFriends)))
@@ -283,10 +294,14 @@ class Player:
 
     def receiveHit(self, dmg, attacker, game):
         self.hp -= dmg
-        #TODO on death, respawn randomly
         if self.hp <= 0:
-            DBC.playerKilled(self.name, attacker.name)
+            if attacker in self.hasBeenKilledBy:
+                DBC.updatePlayerKilledCount(self.name, attacker.name)
+            else:
+                DBC.playerKilled(self.name, attacker.name)
+                self.hasBeenKilledBy.append(attacker)
             self.position = (random.randrange(-game.max_size, game.max_size), random.randrange(-game.max_size, game.max_size))
+            self.hp = PLAYER_DEFAULT_HEALTH
 
     def sellItemsInShop(self, shop):
         if len(self.inv)>0:
@@ -375,7 +390,7 @@ class Game:
     def genItems(self):
         allitemsHTML = requests.get('https://minecraft-ids.grahamedgecombe.com/').text
 
-        items = re.findall('class="name">(.*?)<.*?class="text-id">\((.*?)\)</', allitemsHTML.replace("'", ""))
+        items = re.findall('class="name">(.*?)<.*?class="text-id">\((.*?)\)</', allitemsHTML.replace("'", ""))[:MAX_NUMBER_ITEMS]
 
         self.items = {"population": [], "weights": []}
         for i in range(len(items)):

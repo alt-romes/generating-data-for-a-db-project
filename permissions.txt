@@ -2,10 +2,6 @@
 -- chat
 -- essentials
 
-- chat
--- sendtext
--- receivetext
-
 - essentials
 -- kit
 --- kit_tools
@@ -17,33 +13,19 @@
 --- del_home
 -- ping
 -- rules
--- player_teleport_kit
 --- tpa
 --- tpaccept
 --- tpdeny
 --- tpahere
 -- balance
--- suicide
 -- time
-
-- helper
--- tp
--- spawn
--- block_chat
--- heal
--- feed
--- tester
 
 - moderator
 -- kick
 -- give
 -- gamemode
 -- kill
--- xp
--- summon
--- immunity
--- fly
--- helper
+-- standard
 
 - admin
 -- ban
@@ -51,22 +33,6 @@
 -- op
 -- deop
 -- moderator
-
-- standard_tester
--- randomtp
--- spawn_tester
--- give_tester
--- xp_tester
-
-- semi_tester
--- kill_tester
--- tp_tester
--- standard_tester
-
-- pro_tester
--- immunity_tester
--- info_tester
--- semi_tester
 
 - faction_leader
 -- faction_member
