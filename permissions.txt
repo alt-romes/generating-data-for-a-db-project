@@ -35,6 +35,9 @@
 -- moderator
 
 - faction_leader
+-- faction_sergeant
+
+- faction_sergeant
 -- faction_member
 
 - faction_member

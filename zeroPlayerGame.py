@@ -23,7 +23,7 @@ MAX_MOVE_IN_DIRECTION = 20
 PLAYER_DEFAULT_HEALTH = 60
 INV_SIZE = 42
 MAX_ITEMS_SOLD_OR_BOUGHT_AT_ONCE = 6
-NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 6)
+NUMBER_OF_FACTIONS = int(MAX_PLAYERS / 4)
 FRIENDS_PER_PLAYER = int(MAX_PLAYERS / 6)
 
 MIN_DISTANCE_BETWEEN_SHOPS = MAX_SIZE / 5
@@ -31,6 +31,7 @@ NEW_ITEM_CHANCE = 0.1
 SEND_MESSAGE_CHANCE = 0.05
 NEW_PLAYER_CHANCE = 0.03
 NEW_FACTION_CHANCE = 0.002
+CHANCE_FOR_DESCRIPTION_OR_HEADER = 0.1
 # DATABASE STRINGS
 INSERT_PLAYERS = "insert into players(name) values('{}')"
 # INSERT_PLAYERS = "Created player {}"
@@ -50,17 +51,24 @@ INSERT_IN_FACTION = "insert into factions values ('{}',{},{},{},'{}')"
 
 PLAYER_JOIN_FACTION = "begin join_faction('{}','{}'); end"
 
+UPDATE_PLAYER_FACTION_OPTIONS = "update belongs set nickname='{}', entrance_quote='{}' where player_name='{}' and faction_name='{}'"
+
 CREATE_SHOP = "begin add_shop('{}',{},{}); end"
 # CREATE_SHOP = "Player {} created at {}, {} a new shop: {}"
 
-PLAYER_KILLED = "insert into kills(waskilled_name,killed_name) values('{}','{}')"
-# PLAYER_KILLED = "Player {} was killed by {}"
-UPDATE_PLAYER_KILLED = "update kills set count_kills=count_kills+1 where waskilled_name='{}' and killed_name='{}'"
+UPDATE_SHOP_HEADER = "update shops set shop_header='{}' where player_name='{}' and id_shop={}"
 
-PUT_ITEM_FOR_SALE = "insert into for_sale values('{}',{},{},{},{})"
+PLAYER_KILLED = "insert into kills(waskilled_name,killer_name) values('{}','{}')"
+# PLAYER_KILLED = "Player {} was killed by {}"
+UPDATE_PLAYER_KILLED = "update kills set count_kills=count_kills+1 where waskilled_name='{}' and killer_name='{}'"
+
+
+PROCEDURE_PUT_FOR_SALE = "begin put_item_for_sale('{}',{},{},{},{}); end"
+
+# PUT_ITEM_FOR_SALE = "insert into for_sale values('{}',{},{},{},{})"
 # PUT_ITEM_FOR_SALE = "Player {} in shop {} puts {} for sale for {}. {} available"
 
-UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount=sale_amount+{} where player_name='{}' and id_shop={} and id_item={}"
+# UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount=sale_amount+{} where player_name='{}' and id_shop={} and id_item={}"
 # UPDATE_ITEM_FOR_SALE = "{} more items restocked for player {} shop {} item {}"
 
 # ITEM_WAS_BOUGHT_FROM_SHOP = "insert into transaction(buyer_name,seller_name,id_shop,id_item,bought_amount) values('{}','{}',{},{},{})"
@@ -70,6 +78,10 @@ UPDATE_ITEM_FOR_SALE = "update for_sale set sale_amount=sale_amount+{} where pla
 # ITEM_WAS_BOUGHT_AGAIN_FROM_SHOP = "{} more were bought by {} from {}, in shop {} of item {}"
 
 BUY_ITEMS_FROM_SHOP = "begin buy_items('{}','{}',{},{},{}); end"
+
+UPDATE_PLAYER_PERMISSION = "update hasPermissions set identificator='{}' where player_name='{}' and identificator not like '%faction%'"
+
+
 
 # FLAIR STRINGS
 DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standard", "A cool looking", "An awesome", "A pretty cool", "Default", "An elementary", "Your usual", "A usual", "An everyday", "Your everyday", "An average looking", "An average", "A conventional", "Your average", "An OK", "A vanilla", "Unique", "A common", "Mainstream", "Your typical", "A typical", "A modest", "A neat", "A bland", "A serious looking", "A decent looking", "A decent", "Pretty nice", "A nice", "An undemanding", "A manageable", "An effortless", "A user-friendly", "A coherent", "An understandable", "An accessible", "Standard", "A basic", "A blunt", "Pure", "Candid", "Some honest", "Some demanding", "A piece of cake but its actually", "You wish itd make sound but it doesnt. Your", "Show it to your friends. Your", "Go crazy with this", "Looks better than you, a good", "But does it fly? A simple", "How will you explain this? Your cool", "A magnificient", "You cant drive it, its a non-drivable", "A sarcastic", "Funny looking", "Has no wheels, but its a decent", "A beautiful", "Looks better than your ex, but youre just holding one more", "How did you even get this", "A rare", "One more", "Close your eyes again, its still just one more", "A f*cking"]
@@ -82,6 +94,7 @@ class DBC:
         self.buffer = []
 
     def executeInDB(self, command):
+        return
         r = requests.post(self.EXECUTE_URL, {"command": command})
 
         error = re.findall('<span style="font-size: 1\.1em;">\n\t\t.*?(ORA-.*?)\n', r.text)
@@ -146,10 +159,16 @@ class DBC:
     def playerJoinFaction(self, p, f):
         c = PLAYER_JOIN_FACTION.format(p.name, f.name)
         self.printAndExecute(c)
+        if random.random() < CHANCE_FOR_DESCRIPTION_OR_HEADER:
+            c = UPDATE_PLAYER_FACTION_OPTIONS.format(p.makeNickname().replace("'", "")[150:], p.makeEntranceQuote().replace("'", ""), p.name, f.name)
+            self.printAndExecute(c)
     
     def createShop(self, newShop):
         c = CREATE_SHOP.format(newShop.owner.name, newShop.position[0], newShop.position[1])
         self.printAndExecute(c)
+        if random.random() < CHANCE_FOR_DESCRIPTION_OR_HEADER:
+            c = UPDATE_SHOP_HEADER.format(newShop.shop_header.replace("'", "")[:150], newShop.owner.name, newShop.id_shop+1)
+            self.printAndExecute(c)
 
     def playerKilled(self, deadName, attackerName):
         c = PLAYER_KILLED.format(deadName, attackerName)
@@ -163,17 +182,26 @@ class DBC:
         c = INSERT_ITEMS.format(item.name, item.desc)
         self.printAndExecute(c)
 
-    def putItemForSale(self, pname, id_shop, id_item, price, amount):
-        c = PUT_ITEM_FOR_SALE.format(pname, id_shop+1, id_item+1, price, amount)
-        self.printAndExecute(c)
+    def procedurePutForSale(self, pname, id_shop, id_item, price, amount):
+        c = PROCEDURE_PUT_FOR_SALE.format(pname, id_shop+1, id_item+1, price, amount)
+        self.printAndExecute(c) 
 
-    def updateItemForSale(self, amount, pname, id_shop, id_item):
-        c = UPDATE_ITEM_FOR_SALE.format(amount, pname, id_shop+1, id_item+1)
-        self.printAndExecute(c)
+    # def putItemForSale(self, pname, id_shop, id_item, price, amount):
+    #     c = PUT_ITEM_FOR_SALE.format(pname, id_shop+1, id_item+1, price, amount)
+    #     self.printAndExecute(c)
+
+    # def updateItemForSale(self, amount, pname, id_shop, id_item):
+    #     c = UPDATE_ITEM_FOR_SALE.format(amount, pname, id_shop+1, id_item+1)
+    #     self.printAndExecute(c)
 
     def shopSoldItem(self, buyerName, sellerName, id_shop, id_item, amount):
         c = BUY_ITEMS_FROM_SHOP.format(buyerName, sellerName, id_shop+1, id_item+1, amount)
         self.printAndExecute(c)
+    
+    def updatePermission(self, p, permission):
+        c = UPDATE_PLAYER_PERMISSION.format(permission, p.name)
+        self.printAndExecute(c)
+
 
 DBC = DBC()
 
@@ -225,18 +253,18 @@ class Shop:
         self.was_shopped_by = []
     
     def makeShopHeader(self):
-        return ""
+        return random.choice(["We interrupt this program to annoy you and make things generally more irritating.", "He's not the Messiah—he's a very naughty boy!", "Strange women lying in ponds, distributing swords, is no basis for a system of government!", "And finally…", "The mill's closed…", "But kids were different in them days…", "… They didn't have their heads filled with all this Cartesian Dualism!", "Shut up, you American…", "We use only the finest baby frogs…", "My brain hurts!", "There's nothing wrong with you that an expensive operation can't prolong.", "This is a vegetarian restaurant…", "Tonight, instead of discussing the existence or non-existence of God, they have decided to fight for it.", "She's a witch! Burn her already!", "It's just gone eight o'clock and time for the penguin on top of your television set to explode.", "Welcome to my shop! Enjoy!", "This is my shop! Welcome!", "The greatest shop you'll ever know", "An ambitious shop for an ambitious person", "The next level shop", "The next big thing shop", "An OK shop, don't you think?", "My shop tastes purple", 'May the Force be with you.', "There's no place like home.", "I'm the king of the world!", "Carpe diem. Seize the day, boys. Make your lives extraordinary.", "Elementary, my dear Watson.", "It's alive! It's alive!", "I'll be back.", "You're gonna need a bigger boat.", "Here's looking at you, kid.", "Houston, we have a problem.", "There's no crying in baseball!", "You can't handle the truth!", "A martini. Shaken, not stirred."])
     
     def putItemForSale(self, iid, amount):
         if iid in self.for_sale:
             self.for_sale[iid]['amount'] += amount
-            DBC.updateItemForSale(amount, self.owner.name, self.id_shop, iid)
         else:
             self.for_sale[iid] = {}
             self.for_sale[iid]['bought'] = {}
             self.for_sale[iid]['amount'] = amount
             self.for_sale[iid]['price'] = random.randrange(5, 100) #TODO maybe make this in a way that the economy isn't random
-            DBC.putItemForSale(self.owner.name, self.id_shop, iid, self.for_sale[iid]['price'], amount)
+        
+        DBC.procedurePutForSale(self.owner.name, self.id_shop, iid, self.for_sale[iid]['price'], amount)
 
     def playerPurchase(self, buyerID, buyerName, iid, amount):
         self.for_sale[iid]['amount'] -= amount
@@ -269,6 +297,11 @@ class Player:
     def addFriend(self, friend):
         self.friends.append(friend)
     
+    def makeNickname(self):
+        return random.choice(["Biggus Dickus", "Crazy Joe", "Ruth", "Runnerman", "Cereal Killer", "Floyd", "Turner", "Money Bags", "The Boss", "Mafia", "Dingletron", "Jackie Chan", "The Ninja", "The Sniper", "Camper", "One Shot", "Bowman", "Lucky", "The Man"])
+
+    def makeEntranceQuote(self):
+        return random.choice(["We interrupt this program to annoy you and make things generally more irritating.", "He's not the Messiah—he's a very naughty boy!", "Strange women lying in ponds, distributing swords, is no basis for a system of government!", "And finally…", "The mill's closed…", "But kids were different in them days…", "… They didn't have their heads filled with all this Cartesian Dualism!", "Shut up, you American…", "We use only the finest baby frogs…", "My brain hurts!", "There's nothing wrong with you that an expensive operation can't prolong.", "This is a vegetarian restaurant…", "Tonight, instead of discussing the existence or non-existence of God, they have decided to fight for it.", "She's a witch! Burn her already!", "It's just gone eight o'clock and time for the penguin on top of your television set to explode."])
 
     def invIsFull(self):
         return len(self.inv) >= INV_SIZE
@@ -393,6 +426,10 @@ class Game:
         for p in self.players:
             p.makeFriends(self.players)
 
+        DBC.updatePermission(self.players[0], "admin")
+        DBC.updatePermission(self.players[1], "moderator")
+        DBC.updatePermission(self.players[2], "moderator")
+
     def createPlayer(self):
         names = set()
         names.update(map(lambda e: e.replace("_", ""), requests.get("http://names.drycodes.com/1?nameOptions=boy_names&combine=1&case=lower").json()))
@@ -404,8 +441,8 @@ class Game:
             self.players.append(p)
             DBC.insertPlayer(p)
             p.makeFriends(self.players)
-
-
+        
+        
     def genItems(self):
         allitemsHTML = requests.get('https://minecraft-ids.grahamedgecombe.com/').text
 
@@ -443,9 +480,9 @@ class Game:
     def createFaction(self):
         namearr = self.faction_names.pop()
         f = Faction(namearr[0], random.randrange(5, 8), (random.randrange(-MAX_SIZE, MAX_SIZE), random.randrange(-MAX_SIZE, MAX_SIZE)), (namearr[2] if namearr[2] != '' else 'This is our faction!'))
-        leader = None
+        leader = random.choice(self.players)
         i = 0
-        while leader in self.chosenLeaders and i<len(self.players):
+        while leader.faction != None and i<len(self.players):
             leader = random.choice(self.players)
             i += 1
         self.chosenLeaders.append(leader)
