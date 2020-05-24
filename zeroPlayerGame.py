@@ -1,5 +1,3 @@
-#TODO: Perguntar ao professor sobre o multiple insert INSERT ALL
-
 import generatePermissions
 
 import random
@@ -31,7 +29,7 @@ NEW_ITEM_CHANCE = 0.1
 SEND_MESSAGE_CHANCE = 0.05
 NEW_PLAYER_CHANCE = 0.03
 NEW_FACTION_CHANCE = 0.002
-CHANCE_FOR_DESCRIPTION_OR_HEADER = 0.1
+CHANCE_FOR_DESCRIPTION_OR_HEADER = 0.32
 # DATABASE STRINGS
 INSERT_PLAYERS = "insert into players(name) values('{}')"
 # INSERT_PLAYERS = "Created player {}"
@@ -84,11 +82,11 @@ UPDATE_PLAYER_PERMISSION = "update hasPermissions set identificator='{}' where p
 
 
 # FLAIR STRINGS
-DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standard", "A cool looking", "An awesome", "A pretty cool", "Default", "An elementary", "Your usual", "A usual", "An everyday", "Your everyday", "An average looking", "An average", "A conventional", "Your average", "An OK", "A vanilla", "Unique", "A common", "Mainstream", "Your typical", "A typical", "A modest", "A neat", "A bland", "A serious looking", "A decent looking", "A decent", "Pretty nice", "A nice", "An undemanding", "A manageable", "An effortless", "A user-friendly", "A coherent", "An understandable", "An accessible", "Standard", "A basic", "A blunt", "Pure", "Candid", "Some honest", "Some demanding", "A piece of cake but its actually", "You wish itd make sound but it doesnt. Your", "Show it to your friends. Your", "Go crazy with this", "Looks better than you, a good", "But does it fly? A simple", "How will you explain this? Your cool", "A magnificient", "You cant drive it, its a non-drivable", "A sarcastic", "Funny looking", "Has no wheels, but its a decent", "A beautiful", "Looks better than your ex, but youre just holding one more", "How did you even get this", "A rare", "One more", "Close your eyes again, its still just one more", "A f*cking"]
+DESC_STARTERS = ["A normal", "An ordinary", "Simple", "A standard", "Your standard", "A cool looking", "An awesome", "A pretty cool", "Default", "An elementary", "Your usual", "A usual", "An everyday", "Your everyday", "An average looking", "An average", "A conventional", "Your average", "An OK", "A vanilla", "Unique", "A common", "Mainstream", "Your typical", "A typical", "A modest", "A neat", "A bland", "A serious looking", "A decent looking", "A decent", "Pretty nice", "A nice", "An undemanding", "A manageable", "An effortless", "A user-friendly", "A coherent", "An understandable", "An accessible", "Standard", "A basic", "A blunt", "Pure", "Candid", "Some honest", "Some demanding", "A piece of cake but its actually", "You wish itd make sound but it doesnt. Your", "Show it to your friends. Your", "Go crazy with this", "Looks better than you, a good", "But does it fly? A simple", "How will you explain this? Your cool", "A magnificient", "You cant drive it, its a non-drivable", "A sarcastic", "Funny looking", "Has no wheels, but its a decent", "A beautiful", "Youre just holding more", "How did you even get this", "A rare", "One more", "Close your eyes again, its still just one more", "A f*cking"]
 
 # CODE
 class DBC:
-    EXECUTE_URL = 'https://apex.oracle.com/pls/apex/troyka/mod/execute'
+    EXECUTE_URL = 'https://apex.oracle.com/pls/apex/troyka/mod/execute' #I've disabled this endpoint now...
 
     def __init__(self):
         self.buffer = []
@@ -160,7 +158,7 @@ class DBC:
         c = PLAYER_JOIN_FACTION.format(p.name, f.name)
         self.printAndExecute(c)
         if random.random() < CHANCE_FOR_DESCRIPTION_OR_HEADER:
-            c = UPDATE_PLAYER_FACTION_OPTIONS.format(p.makeNickname().replace("'", "")[150:], p.makeEntranceQuote().replace("'", ""), p.name, f.name)
+            c = UPDATE_PLAYER_FACTION_OPTIONS.format(p.nickname.replace("'", "")[:30], p.makeEntranceQuote().replace("'", "")[:150], p.name, f.name)
             self.printAndExecute(c)
     
     def createShop(self, newShop):
@@ -284,6 +282,7 @@ class Player:
         self.inv = {}
         self.shops = []
         self.faction = None
+        self.nickname = self.makeNickname()
         self.level = 0
         self.friends = []
         self.hasBeenKilledBy = []
@@ -441,6 +440,7 @@ class Game:
             self.players.append(p)
             DBC.insertPlayer(p)
             p.makeFriends(self.players)
+            return p
         
         
     def genItems(self):
@@ -485,6 +485,10 @@ class Game:
         while leader.faction != None and i<len(self.players):
             leader = random.choice(self.players)
             i += 1
+
+        if i==len(self.players):
+            leader = self.createPlayer()
+
         self.chosenLeaders.append(leader)
         f.members[leader] = leader
         self.factions.append(f)
@@ -554,6 +558,5 @@ class Game:
 
 
 if __name__ == "__main__":
-    # print(chr(27) + "[2J")
-    game = Game(0, 0, MAX_PLAYERS, MAX_SIZE) #change with sys.argv
+    game = Game(0, 0, MAX_PLAYERS, MAX_SIZE)
     game.run()
