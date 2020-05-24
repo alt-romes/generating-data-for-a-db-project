@@ -1,6 +1,6 @@
 # creating-DB-data
 
-A repository containing the code used to generate data for a Database project, and a few small programs to fetch and parse data for tables of other colleagues.
+A repository containing the code used to generate data for a Database project, and a few small programs (in `other`) to fetch and parse data for tables of other colleagues.
 
 `zeroPlayerGame.py` contains the code that generates all the data.
 
