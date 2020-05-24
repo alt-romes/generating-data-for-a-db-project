@@ -1,8 +1,6 @@
 import openpyxl
 
 wb = openpyxl.load_workbook(filename="fsexcel.xlsx")
-print(wb.sheetnames)
-print(wb.active)
 for (i, sheet) in enumerate(wb):
     if i > 1:
         print(sheet)
