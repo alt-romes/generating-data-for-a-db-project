@@ -4,4 +4,4 @@ A repository containing the code used to generate data for a Database project, a
 
 `zeroPlayerGame.py` contains the code that generates all the data.
 
-For an explanation of the get requests and regular expression to fetch data from a webpage, read [this article I wrote](https://medium.com/@rodrigo.m.mesquita/get-data-for-your-db-schoolwork-with-6-lines-of-python-e68a108f65ff)
+For an explanation of how I'm getting data from webpages, read [this article I wrote (Get data for your db schoolwork with 6 lines of python)](https://medium.com/@rodrigo.m.mesquita/get-data-for-your-db-schoolwork-with-6-lines-of-python-e68a108f65ff)
